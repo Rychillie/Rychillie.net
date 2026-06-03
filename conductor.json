@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "setup": "zsh Sources/Scripts/conductor-setup.sh",
+    "run": "zsh Sources/Scripts/conductor-run.sh"
+  },
+  "runScriptMode": "concurrent"
+}
