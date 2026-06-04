@@ -1,4 +1,0 @@
----
-title: Rychillie
-template: home
----

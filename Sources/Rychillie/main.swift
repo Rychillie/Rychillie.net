@@ -4,15 +4,6 @@ import SagaParsleyMarkdownReader
 import SagaSwimRenderer
 import SwiftTailwind
 
-struct ArticleMetadata: Metadata {
-  let tags: [String]
-  var summary: String?
-}
-
-struct PageMetadata: Metadata {
-  var template: String?
-}
-
 let tailwind = SwiftTailwind(version: "4.3.0")
 
 func compileTailwind() async throws {
@@ -42,18 +33,16 @@ try await Saga(input: "content", output: "deploy")
   }
   .ignoreChanges("styles.css")
   .register(
-    folder: "articles",
-    metadata: ArticleMetadata.self,
+    folder: "notes",
+    metadata: NoteMetadata.self,
     readers: [.parsleyMarkdownReader],
     writers: [
-      .itemWriter(swim(renderArticle)),
-      .listWriter(swim(renderArticles)),
-      .tagWriter(swim(renderTag), tags: \.metadata.tags),
+      .itemWriter(swim(renderNote)),
     ]
   )
-  .register(
-    metadata: PageMetadata.self,
-    readers: [.parsleyMarkdownReader],
-    writers: [.itemWriter(swim(renderPage))]
-  )
+  .createPage("index.html", using: swim(renderHome))
+  .createPage("notes/index.html", using: swim(renderNotes))
+  .createPage("about/index.html", using: swim(renderAbout))
+  .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
+  .createPage("articles/hello-world/index.html", using: Saga.redirectHTML(to: "\(Site.notesPath)hello-world/"))
   .run()
