@@ -9,6 +9,10 @@ struct ArticleMetadata: Metadata {
   var summary: String?
 }
 
+struct PageMetadata: Metadata {
+  var template: String?
+}
+
 let tailwind = SwiftTailwind(version: "4.3.0")
 
 func compileTailwind() async throws {
@@ -48,7 +52,7 @@ try await Saga(input: "content", output: "deploy")
     ]
   )
   .register(
-    metadata: EmptyMetadata.self,
+    metadata: PageMetadata.self,
     readers: [.parsleyMarkdownReader],
     writers: [.itemWriter(swim(renderPage))]
   )
