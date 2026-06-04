@@ -5,7 +5,7 @@ date: 2026-06-03
 ---
 # Hello, World!
 
-This is your first article. Edit this file or create new markdown files in the `content/articles` folder.
+This is your first note. Edit this file or create new markdown files in the `content/notes` folder.
 
 ## Getting Started
 
