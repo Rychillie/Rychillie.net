@@ -4,4 +4,4 @@
 *.xcodeproj
 xcuserdata/
 deploy/
-content/static/output.css
+content/static/styles.css
