@@ -10,7 +10,7 @@ func baseHtml(title pageTitle: String, @NodeBuilder children: () -> NodeConverti
       meta(charset: "utf-8")
       meta(content: "width=device-width, initial-scale=1", name: "viewport")
       title { pageTitle }
-      link(href: Saga.hashed("/static/output.css"), rel: "stylesheet")
+      link(href: Saga.hashed("/static/styles.css"), rel: "stylesheet")
     }
     body(class: Theme.body) {
       header {
