@@ -1,5 +1,4 @@
 import HTML
-import Moon
 import Saga
 
 func renderNote(context: ItemRenderingContext<NoteMetadata>) -> Node {
@@ -9,15 +8,15 @@ func renderNote(context: ItemRenderingContext<NoteMetadata>) -> Node {
         header(class: Theme.Notes.articleHeader) {
           a(class: Theme.Notes.backLink, href: Site.notesPath) { "notes" }
           h1(class: Theme.Notes.pageTitle) { context.item.title }
-          div(class: Theme.Notes.metaRow) {
-            p(class: Theme.Notes.cardMeta) { "Note" }
-            span(class: Theme.Notes.metaDot) {}
-            p(class: Theme.Notes.cardMeta) { Site.displayDate(context.item.date) }
+          div(class: Theme.Card.metaRow) {
+            p(class: Theme.Card.meta) { context.item.metadata.displayType.label }
+            span(class: Theme.Card.metaDot) {}
+            p(class: Theme.Card.meta) { Site.displayDate(context.item.date) }
           }
           tagList(context.item.metadata.tags)
         }
         div(class: Theme.Markdown.content) {
-          Node.raw(Moon.shared.highlightCodeBlocks(in: context.item.body))
+          Node.raw(context.item.body)
         }
       }
     }

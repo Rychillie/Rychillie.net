@@ -36,6 +36,7 @@ try await Saga(input: "content", output: "deploy")
     folder: "notes",
     metadata: NoteMetadata.self,
     readers: [.parsleyMarkdownReader],
+    itemProcessor: syntaxHighlight,
     writers: [
       .itemWriter(swim(renderNote)),
     ]
