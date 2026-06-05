@@ -19,7 +19,9 @@ func renderNotes(context: PageRenderingContext) -> Node {
         p(class: Theme.Notes.empty) { "No notes published yet." }
       } else {
         div(class: Theme.Notes.list) {
-          notes.map(noteCard)
+          notes.map { note in
+            noteCard(note)
+          }
         }
       }
     }

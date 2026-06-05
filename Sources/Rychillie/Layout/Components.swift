@@ -21,125 +21,117 @@ func themedIcon(
   }
 }
 
-func homeCard(
+struct CardBadge {
+  let light: String
+  let dark: String?
+  let className: String
+}
+
+enum CardLeading {
+  case avatar(image: String, badge: CardBadge)
+  case icon(light: String, dark: String, className: String)
+  case image(name: String, className: String)
+}
+
+func siteCard(
   title: String,
-  subtitle: String,
-  avatar: String,
-  badgeLight: String,
-  badgeDark: String? = nil,
-  badgeClass: String,
-  href: String? = nil
+  subtitle: String? = nil,
+  description: String? = nil,
+  href: String? = nil,
+  leading: CardLeading? = nil,
+  showsArrow: Bool = true
 ) -> Node {
+  let className = !showsArrow && subtitle == nil && description == nil ? Theme.Card.brand : (href == nil ? Theme.Card.staticCard : Theme.Card.linked)
+
   if let href {
-    return a(class: Theme.Home.card, href: href) {
-      homeCardContents(
+    return a(class: className, href: href) {
+      siteCardContents(
         title: title,
         subtitle: subtitle,
-        avatar: avatar,
-        badgeLight: badgeLight,
-        badgeDark: badgeDark,
-        badgeClass: badgeClass
+        description: description,
+        leading: leading,
+        showsArrow: showsArrow
       )
     }
   }
 
-  return div(class: Theme.Home.cardStatic) {
-    homeCardContents(
+  return div(class: className) {
+    siteCardContents(
       title: title,
       subtitle: subtitle,
-      avatar: avatar,
-      badgeLight: badgeLight,
-      badgeDark: badgeDark,
-      badgeClass: badgeClass
+      description: description,
+      leading: leading,
+      showsArrow: showsArrow
     )
   }
 }
 
 @NodeBuilder
-func homeCardContents(
+func siteCardContents(
   title: String,
-  subtitle: String,
-  avatar: String,
-  badgeLight: String,
-  badgeDark: String?,
-  badgeClass: String
+  subtitle: String?,
+  description: String?,
+  leading: CardLeading?,
+  showsArrow: Bool
 ) -> NodeConvertible {
-  div(class: Theme.Home.profileGroup) {
-    div(class: Theme.Home.profile) {
-      assetImage(avatar, alt: "\(title) profile photo", class: Theme.Home.profileImage)
-      span(class: Theme.Home.profileBadge) {
-        if let badgeDark {
-          themedIcon(light: badgeLight, dark: badgeDark, class: badgeClass)
-        } else {
-          assetImage(badgeLight, alt: "", class: badgeClass)
-        }
+  div(class: leading == nil ? Theme.Card.content : Theme.Card.contentWithLeading) {
+    cardLeading(leading, title: title)
+    div(class: Theme.Card.details) {
+      p(class: Theme.Card.title) { title }
+      if let description {
+        p(class: Theme.Card.description) { description }
+      }
+      if let subtitle {
+        p(class: Theme.Card.meta) { subtitle }
       }
     }
-    div(class: Theme.Home.cardDetails) {
-      p(class: Theme.Home.cardTitle) { title }
-      p(class: Theme.Home.cardMeta) { subtitle }
+  }
+
+  if showsArrow {
+    themedIcon(light: "arrow-card-light.svg", dark: "arrow-card-dark.svg", class: Theme.Card.arrow)
+  }
+}
+
+@NodeBuilder
+func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
+  if let leading {
+    switch leading {
+    case let .avatar(image, badge):
+      div(class: Theme.Card.avatar) {
+        assetImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
+        span(class: Theme.Card.badge) {
+          if let dark = badge.dark {
+            themedIcon(light: badge.light, dark: dark, class: badge.className)
+          } else {
+            assetImage(badge.light, alt: "", class: badge.className)
+          }
+        }
+      }
+    case let .icon(light, dark, className):
+      themedIcon(light: light, dark: dark, class: className)
+    case let .image(name, className):
+      assetImage(name, alt: "", class: className)
     }
   }
-  themedIcon(light: "arrow-card-light.svg", dark: "arrow-card-dark.svg", class: Theme.Home.arrow)
 }
 
 func homeText(_ text: String) -> Node {
   p(class: Theme.Home.text) { text }
 }
 
-func homeContentItem(title: String, kind: String, date: String) -> Node {
-  div(class: Theme.Home.listCard) {
-    div(class: Theme.Home.listDetails) {
-      p(class: Theme.Home.cardTitle) { title }
-      div(class: Theme.Home.metaRow) {
-        p(class: Theme.Home.cardMeta) { kind }
-        span(class: Theme.Home.metaDot) {}
-        p(class: Theme.Home.cardMeta) { date }
-      }
-    }
-    themedIcon(light: "arrow-card-light.svg", dark: "arrow-card-dark.svg", class: Theme.Home.arrow)
-  }
-}
-
-func brandChip(
-  name: String,
-  lightIcon: String? = nil,
-  darkIcon: String? = nil,
-  image: String? = nil,
-  iconClass: String = Theme.Home.brandIcon
-) -> Node {
-  div(class: Theme.Home.brandChip) {
-    if let image {
-      assetImage(image, alt: "", class: Theme.Home.brandLogo)
-    } else if let lightIcon, let darkIcon {
-      themedIcon(light: lightIcon, dark: darkIcon, class: iconClass)
-    }
-    p(class: Theme.Home.cardTitle) { name }
-  }
-}
-
-func homeSocialAction(_ text: String) -> Node {
-  span(class: Theme.Home.socialAction) {
-    themedIcon(light: "arrow-inline-light.svg", dark: "arrow-inline-dark.svg", class: Theme.Home.inlineArrow)
-    span { text }
+func inlineActionLink(title: String, href: String) -> Node {
+  a(class: Theme.Card.inlineAction, href: href) {
+    themedIcon(light: "arrow-inline-light.svg", dark: "arrow-inline-dark.svg", class: Theme.Card.inlineArrow)
+    span { title }
   }
 }
 
 func noteCard(_ note: Item<NoteMetadata>) -> Node {
-  a(class: Theme.Notes.card, href: note.url) {
-    div(class: Theme.Notes.cardDetails) {
-      p(class: Theme.Notes.cardTitle) { note.title }
-      if let summary = note.metadata.summary {
-        p(class: Theme.Notes.cardSummary) { summary }
-      }
-      div(class: Theme.Notes.metaRow) {
-        p(class: Theme.Notes.cardMeta) { "Note" }
-        span(class: Theme.Notes.metaDot) {}
-        p(class: Theme.Notes.cardMeta) { Site.displayDate(note.date) }
-      }
-    }
-    themedIcon(light: "arrow-card-light.svg", dark: "arrow-card-dark.svg", class: Theme.Notes.arrow)
-  }
+  siteCard(
+    title: note.title,
+    subtitle: "\(note.metadata.displayType.label) · \(Site.displayDate(note.date))",
+    href: note.url
+  )
 }
 
 func tagList(_ tags: [String]) -> Node {

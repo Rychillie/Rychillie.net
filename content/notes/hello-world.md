@@ -1,5 +1,6 @@
 ---
 tags: swift, saga
+type: article
 summary: Getting started with Saga, a static site generator written in Swift.
 date: 2026-06-03
 ---
