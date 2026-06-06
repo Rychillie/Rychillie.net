@@ -126,10 +126,10 @@ func inlineActionLink(title: String, href: String) -> Node {
   }
 }
 
-func noteCard(_ note: Item<NoteMetadata>) -> Node {
+func noteCard(_ note: Item<NoteMetadata>, locale: String) -> Node {
   siteCard(
     title: note.title,
-    subtitle: "\(note.metadata.displayType.label) · \(Site.displayDate(note.date))",
+    subtitle: "\(note.metadata.displayType.label(locale: locale)) · \(Site.displayDate(note.date, locale: locale))",
     href: note.url
   )
 }

@@ -2,11 +2,14 @@ import HTML
 import Saga
 
 func renderAbout(context: PageRenderingContext) -> Node {
-  baseHtml(title: "About") {
-    pageFrame(activeSection: .about) {
+  let locale = Site.currentLocale(context.locale)
+  let copy = Site.copy(for: locale)
+
+  return baseHtml(title: copy.aboutTitle, locale: locale) {
+    pageFrame(activeSection: .about, locale: locale, translations: context.translations) {
       section(class: Theme.Notes.header) {
-        h1(class: Theme.Notes.pageTitle) { "About" }
-        p(class: Theme.Notes.pageText) { Site.intro }
+        h1(class: Theme.Notes.pageTitle) { copy.aboutTitle }
+        p(class: Theme.Notes.pageText) { copy.intro }
       }
     }
   }

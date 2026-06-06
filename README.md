@@ -2,7 +2,7 @@
 
 Personal static website built with [Saga](https://getsaga.dev), a Swift static site generator.
 
-The site is generated from Markdown content in `content/`, rendered by Swift templates, styled with Tailwind CSS utilities, and deployed to Cloudflare Pages.
+The site is generated from localized Markdown content in `content/`, rendered by Swift templates, styled with Tailwind CSS utilities, and deployed to Cloudflare Pages.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ Build the static site:
 saga build
 ```
 
-Saga reads content from `content/` and writes the generated site to `deploy/`.
+Saga reads localized content from `content/` and writes the generated site to `deploy/`.
 
 The generated files in `deploy/` are ignored by git. Tailwind also writes `content/static/styles.css`, which is generated and ignored.
 
@@ -40,8 +40,8 @@ Tailwind CSS is compiled during the Saga build through [`SwiftTailwind`](https:/
 
 - `content/static/tailwind.css` is the Tailwind input file.
 - `content/static/styles.css` is the generated minified CSS output.
-- `Sources/Rychillie/theme.swift` centralizes the Tailwind utility strings used by the Swift templates.
-- `Sources/Rychillie/templates.swift` links the generated CSS with `Saga.hashed("/static/styles.css")`, so deployed pages reference a cache-friendly hashed stylesheet.
+- `Sources/Rychillie/Styles/Theme.swift` centralizes the Tailwind utility strings used by the Swift templates.
+- `Sources/Rychillie/Layout/Layout.swift` links the generated CSS with `Saga.hashed("/static/styles.css")`, so deployed pages reference a cache-friendly hashed stylesheet.
 - `Sources/Rychillie/main.swift` removes `static/tailwind.css` from the generated `deploy/` output after Saga writes the site.
 
 When changing visual styling, prefer updating `Theme` or `content/static/tailwind.css`. Do not edit `content/static/styles.css` directly.
@@ -52,10 +52,11 @@ The main Saga pipeline lives in `Sources/Rychillie/main.swift`.
 
 - It compiles Tailwind before Saga runs.
 - It uses `content/` as input and `deploy/` as output.
+- It configures Saga i18n with `en` as the default locale and `pt-BR` under `/pt-BR/`.
 - It recompiles Tailwind when CSS changes during development.
 - It ignores generated `styles.css` changes in the Saga file watcher.
-- It registers article Markdown files from `content/articles/` with `ArticleMetadata`, including required `tags` and optional `summary`.
-- It renders standalone Markdown pages with `EmptyMetadata`.
+- It registers note Markdown files from `content/en/notes/` and `content/pt-BR/notes/` with `NoteMetadata`, including required `tags` and optional `summary`.
+- It renders template-driven home, notes, and about pages once per locale.
 
 Templates are built with Saga Swim renderer helpers and use [Moon](https://github.com/loopwerk/Moon) for code highlighting.
 
@@ -63,10 +64,13 @@ Templates are built with Saga Swim renderer helpers and use [Moon](https://githu
 
 - `Package.swift`: Swift package definition and Saga dependencies.
 - `Sources/Rychillie/main.swift`: Saga pipeline, Tailwind compilation, content registration, and output cleanup.
-- `Sources/Rychillie/templates.swift`: Shared HTML shell plus page, article, article index, and tag rendering.
-- `Sources/Rychillie/theme.swift`: Tailwind utility class constants used by the templates.
+- `Sources/Rychillie/Layout/`: Shared HTML shell and reusable layout components.
+- `Sources/Rychillie/Pages/`: Home, notes, note detail, and about renderers.
+- `Sources/Rychillie/Styles/Theme.swift`: Tailwind utility class constants used by the templates.
 - `Sources/Scripts/`: Repository scripts used by Conductor.
-- `content/`: Markdown pages, articles, and static assets.
+- `content/en/notes/`: Default English notes. These build at `/notes/...`.
+- `content/pt-BR/notes/`: Brazilian Portuguese notes. These build at `/pt-BR/notes/...`.
+- `content/static/`: Locale-independent static assets.
 - `content/static/tailwind.css`: Tailwind source CSS.
 - `content/static/styles.css`: Generated Tailwind CSS output. This file is not committed.
 - `deploy/`: Generated static site output. This directory is not committed.

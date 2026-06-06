@@ -24,6 +24,7 @@ func removeTailwindSourceFromDeploy(_ saga: Saga) throws {
 try await compileTailwind()
 
 try await Saga(input: "content", output: "deploy")
+  .i18n(locales: Site.supportedLocales, defaultLocale: Site.defaultLocale)
   .beforeRead { saga in
     guard saga.buildReason.changedFile()?.extension == "css" else { return }
     try await compileTailwind()
@@ -41,9 +42,9 @@ try await Saga(input: "content", output: "deploy")
       .itemWriter(swim(renderNote)),
     ]
   )
-  .createPage("index.html", using: swim(renderHome))
-  .createPage("notes/index.html", using: swim(renderNotes))
-  .createPage("about/index.html", using: swim(renderAbout))
+  .createPage("index.html", forEachLocale: swim(renderHome))
+  .createPage("notes/index.html", forEachLocale: swim(renderNotes))
+  .createPage("about/index.html", forEachLocale: swim(renderAbout))
   .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
   .createPage("articles/hello-world/index.html", using: Saga.redirectHTML(to: "\(Site.notesPath)hello-world/"))
   .run()

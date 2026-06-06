@@ -2,16 +2,18 @@ import HTML
 import Saga
 
 func renderHome(context: PageRenderingContext) -> Node {
+  let locale = Site.currentLocale(context.locale)
+  let copy = Site.copy(for: locale)
   let latestNotes = Array(context.allItems
     .compactMap { $0 as? Item<NoteMetadata> }
     .sorted { $0.date > $1.date }
     .prefix(3))
 
-  return baseHtml(title: Site.name) {
-    pageFrame(activeSection: .home) {
+  return baseHtml(title: Site.name, locale: locale) {
+    pageFrame(activeSection: .home, locale: locale, translations: context.translations) {
       section(class: Theme.Home.intro, id: "about") {
-        h1(class: Theme.Home.introTitle) { "Hey, I'm Rychillie 👋" }
-        homeText(Site.intro)
+        h1(class: Theme.Home.introTitle) { copy.introTitle }
+        homeText(copy.intro)
       }
 
       div(class: Theme.Home.bento) {
@@ -25,12 +27,12 @@ func renderHome(context: PageRenderingContext) -> Node {
         }
       }
 
-      homeText("Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim. Consectetur dolore nisi ex ex velit aute cillum eiusmod commodo eiusmod.")
+      homeText(copy.homePrimaryText)
 
       div(class: Theme.Home.socialCards) {
         siteCard(
           title: "@rychillie",
-          subtitle: "1,550 subscribers",
+          subtitle: copy.youtubeSubscribers,
           href: Site.Link.youtube,
           leading: .avatar(
             image: "youtube-avatar.png",
@@ -39,7 +41,7 @@ func renderHome(context: PageRenderingContext) -> Node {
         )
         siteCard(
           title: "@rychillie",
-          subtitle: "12,100 members",
+          subtitle: copy.communityMembers,
           href: Site.Link.community,
           leading: .avatar(
             image: "discord-avatar.png",
@@ -48,17 +50,17 @@ func renderHome(context: PageRenderingContext) -> Node {
         )
       }
 
-      homeText("Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim.")
+      homeText(copy.homeSocialText)
 
       if !latestNotes.isEmpty {
         div(class: Theme.Home.list) {
           latestNotes.map { note in
-            noteCard(note)
+            noteCard(note, locale: locale)
           }
         }
       }
 
-      homeText("Pariatur dolore excepteur officia exercitation minim laborum est fugiat.")
+      homeText(copy.homeLatestNotesText)
 
       div(class: Theme.Home.brandGrid) {
         siteCard(title: "Apple", leading: .icon(light: "apple-light.svg", dark: "apple-dark.svg", className: Theme.Card.brandAppleIcon), showsArrow: false)
@@ -67,12 +69,8 @@ func renderHome(context: PageRenderingContext) -> Node {
         siteCard(title: "OpenAI", leading: .icon(light: "openai-light.svg", dark: "openai-dark.svg", className: Theme.Card.brandOpenAIIcon), showsArrow: false)
       }
 
-      homeText("Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna.")
+      homeText(copy.homeBrandText)
 
-      div(class: Theme.Home.socialLinks) {
-        inlineActionLink(title: "fallow me", href: Site.Link.follow)
-        inlineActionLink(title: "get email updates", href: Site.Link.emailUpdates)
-      }
     }
   }
 }
