@@ -3,9 +3,10 @@ enum Theme {
     static let body = "min-h-screen bg-white font-['IBM_Plex_Sans',sans-serif] text-neutral-800 antialiased scheme-light dark:bg-neutral-950 dark:text-neutral-200 dark:scheme-dark"
     static let main = "min-h-screen"
     static let stage = "relative min-h-screen overflow-hidden bg-white dark:bg-neutral-950"
-    static let topNav = "absolute top-0 left-1/2 z-10 flex h-36 w-full -translate-x-1/2 items-start justify-end gap-4 bg-gradient-to-b from-white to-white/0 px-6 py-[60px] text-base font-semibold leading-6 text-neutral-800 dark:from-neutral-950 dark:to-neutral-950/0 dark:text-neutral-200 md:max-w-[640px] md:gap-8 md:px-0"
+    static let topNav = "absolute top-0 left-1/2 z-10 flex h-36 w-full -translate-x-1/2 items-baseline justify-end gap-3 bg-gradient-to-b from-white to-white/0 px-6 py-[60px] text-base font-semibold leading-6 text-neutral-800 dark:from-neutral-950 dark:to-neutral-950/0 dark:text-neutral-200 md:max-w-[640px] md:gap-5 md:px-0"
     static let navActive = "text-[#9d2e29] no-underline dark:text-[#e05e58]"
     static let navLink = "text-neutral-800 no-underline hover:text-[#9d2e29] dark:text-neutral-200 dark:hover:text-[#e05e58]"
+    static let footerActions = "flex flex-wrap items-center gap-3 pt-2 md:gap-4"
     static let container = "relative mx-auto flex w-full flex-col items-start gap-6 px-6 py-36 md:max-w-[640px] md:px-0"
     static let bottomFade = "pointer-events-none absolute bottom-0 left-1/2 h-36 w-full -translate-x-1/2 bg-gradient-to-b from-white/0 to-white dark:from-neutral-950/0 dark:to-neutral-950 md:max-w-[640px]"
     static let hiddenDark = "block dark:hidden"
@@ -47,7 +48,6 @@ enum Theme {
     static let socialCards = "grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4"
     static let list = "flex w-full flex-col gap-2 md:gap-2.5"
     static let brandGrid = "flex w-full flex-wrap items-center gap-2"
-    static let socialLinks = "flex flex-wrap items-center gap-3 md:gap-4"
   }
 
   enum Notes {

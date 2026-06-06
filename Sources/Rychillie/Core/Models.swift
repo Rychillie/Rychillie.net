@@ -7,12 +7,11 @@ enum NoteType: String, Codable {
   case other
 
   var label: String {
-    switch self {
-    case .article: "Article"
-    case .talk: "Talk"
-    case .video: "Video"
-    case .other: "Other"
-    }
+    label(locale: Site.defaultLocale)
+  }
+
+  func label(locale: String) -> String {
+    Site.copy(for: locale).label(for: self)
   }
 }
 

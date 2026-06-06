@@ -3,9 +3,10 @@ import Saga
 
 func baseHtml(
   title pageTitle: String,
+  locale: String,
   @NodeBuilder children: () -> NodeConvertible
 ) -> Node {
-  html(lang: "en-US") {
+  html(lang: locale) {
     head {
       meta(charset: "utf-8")
       meta(content: "width=device-width, initial-scale=1", name: "viewport")
@@ -21,21 +22,29 @@ func baseHtml(
   }
 }
 
-func pageFrame(activeSection: SiteSection, @NodeBuilder content: () -> NodeConvertible) -> Node {
+func pageFrame(
+  activeSection: SiteSection,
+  locale: String,
+  translations: [String: String],
+  @NodeBuilder content: () -> NodeConvertible
+) -> Node {
   div(class: Theme.Shell.stage) {
-    siteNav(activeSection: activeSection)
+    siteNav(activeSection: activeSection, locale: locale)
     div(class: Theme.Shell.container) {
       content()
+      siteFooter(locale: locale, translations: translations)
     }
     div(class: Theme.Shell.bottomFade) {}
   }
 }
 
-func siteNav(activeSection: SiteSection) -> Node {
-  nav(class: Theme.Shell.topNav) {
-    navLink(title: "home", href: Site.homePath, section: .home, activeSection: activeSection)
-    navLink(title: "notes", href: Site.notesPath, section: .notes, activeSection: activeSection)
-    navLink(title: "about", href: Site.aboutPath, section: .about, activeSection: activeSection)
+func siteNav(activeSection: SiteSection, locale: String) -> Node {
+  let copy = Site.copy(for: locale)
+
+  return nav(class: Theme.Shell.topNav) {
+    navLink(title: copy.homeNav, href: Site.localizedHomePath(for: locale), section: .home, activeSection: activeSection)
+    navLink(title: copy.notesNav, href: Site.localizedNotesPath(for: locale), section: .notes, activeSection: activeSection)
+    navLink(title: copy.aboutNav, href: Site.localizedAboutPath(for: locale), section: .about, activeSection: activeSection)
   }
 }
 
@@ -43,4 +52,22 @@ private func navLink(title: String, href: String, section: SiteSection, activeSe
   a(class: section == activeSection ? Theme.Shell.navActive : Theme.Shell.navLink, href: href) {
     title
   }
+}
+
+private func siteFooter(locale: String, translations: [String: String]) -> Node {
+  let copy = Site.copy(for: locale)
+
+  return footer(class: Theme.Shell.footerActions) {
+    inlineActionLink(title: copy.followLink, href: Site.Link.follow)
+    inlineActionLink(title: copy.emailUpdatesLink, href: Site.Link.emailUpdates)
+
+    if let translationURL = languageSwitchURL(currentLocale: locale, translations: translations) {
+      inlineActionLink(title: copy.languageSwitchLink, href: translationURL)
+    }
+  }
+}
+
+private func languageSwitchURL(currentLocale: String, translations: [String: String]) -> String? {
+  let targetLocale = currentLocale == Site.portugueseLocale ? Site.defaultLocale : Site.portugueseLocale
+  return translations[targetLocale]
 }
