@@ -4,8 +4,17 @@ import Saga
 func renderNote(context: ItemRenderingContext<NoteMetadata>) -> Node {
   let locale = Site.currentLocale(context.locale)
   let copy = Site.copy(for: locale)
+  let canonicalPath = context.translations[locale] ?? context.item.url
+  let description = context.item.metadata.summary ?? context.item.title
 
-  return baseHtml(title: context.item.title, locale: locale) {
+  return baseHtml(
+    title: context.item.title,
+    description: description,
+    canonicalPath: canonicalPath,
+    locale: locale,
+    translations: context.translations,
+    ogType: "article"
+  ) {
     pageFrame(activeSection: .notes, locale: locale, translations: context.translations) {
       article(class: Theme.Notes.article) {
         header(class: Theme.Notes.articleHeader) {

@@ -21,6 +21,23 @@ func removeTailwindSourceFromDeploy(_ saga: Saga) throws {
   }
 }
 
+func generateHomeImages(_ saga: Saga) throws {
+  let process = Process()
+  process.executableURL = URL(fileURLWithPath: "/bin/zsh")
+  process.arguments = ["Sources/Scripts/generate-home-images.sh", saga.outputPath.string]
+
+  try process.run()
+  process.waitUntilExit()
+
+  guard process.terminationStatus == 0 else {
+    throw NSError(
+      domain: "Rychillie.ImageGeneration",
+      code: Int(process.terminationStatus),
+      userInfo: [NSLocalizedDescriptionKey: "Home image generation failed with status \(process.terminationStatus)"]
+    )
+  }
+}
+
 try await compileTailwind()
 
 try await Saga(input: "content", output: "deploy")
@@ -31,6 +48,15 @@ try await Saga(input: "content", output: "deploy")
   }
   .afterWrite { saga in
     try removeTailwindSourceFromDeploy(saga)
+    try generateHomeImages(saga)
+  }
+  .postProcess { content, relativePath in
+    guard relativePath.extension == "html" else { return content }
+
+    let trimmed = content.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+    guard !trimmed.hasPrefix("<!doctype") else { return content }
+
+    return "<!doctype html>\n\(content)"
   }
   .ignoreChanges("styles.css")
   .register(
@@ -47,4 +73,11 @@ try await Saga(input: "content", output: "deploy")
   .createPage("about/index.html", forEachLocale: swim(renderAbout))
   .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
   .createPage("articles/hello-world/index.html", using: Saga.redirectHTML(to: "\(Site.notesPath)hello-world/"))
+  .createPage(
+    "sitemap.xml",
+    using: Saga.sitemap(baseURL: Site.baseURL) { path in
+      let outputPath = path.string
+      return outputPath.hasSuffix(".html") && !outputPath.hasPrefix("articles/")
+    }
+  )
   .run()

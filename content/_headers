@@ -1,0 +1,19 @@
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/static/styles-*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/home/optimized/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/home/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600
