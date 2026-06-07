@@ -5,8 +5,160 @@ func homeAsset(_ name: String) -> String {
   "\(Site.homeAssetPath)\(name)"
 }
 
-func assetImage(_ name: String, alt: String, class className: String) -> Node {
-  img(alt: alt, class: className, src: homeAsset(name))
+struct HomeResponsiveImage {
+  let baseName: String
+  let widths: [Int]
+  let width: Int
+  let height: Int
+  let sizes: String
+
+  var webpSrcset: String {
+    srcset(fileExtension: "webp")
+  }
+
+  var pngSrcset: String {
+    srcset(fileExtension: "png")
+  }
+
+  var fallback: String {
+    path(fileExtension: "png", width: width)
+  }
+
+  var preload: ImagePreload {
+    ImagePreload(
+      href: path(fileExtension: "webp", width: width),
+      srcset: webpSrcset,
+      sizes: sizes,
+      type: "image/webp"
+    )
+  }
+
+  private func path(fileExtension: String, width: Int) -> String {
+    homeAsset("optimized/\(baseName)-\(width).\(fileExtension)")
+  }
+
+  private func srcset(fileExtension: String) -> String {
+    widths
+      .sorted()
+      .map { "\(path(fileExtension: fileExtension, width: $0)) \($0)w" }
+      .joined(separator: ", ")
+  }
+}
+
+extension HomeResponsiveImage {
+  static let bentoSizes = "(min-width: 768px) 312px, calc((100vw - 56px) / 2)"
+
+  static let bentoPortrait1 = HomeResponsiveImage(
+    baseName: "bento-portrait-1",
+    widths: [312, 624],
+    width: 624,
+    height: 896,
+    sizes: bentoSizes
+  )
+
+  static let bentoPortrait2 = HomeResponsiveImage(
+    baseName: "bento-portrait-2",
+    widths: [312, 624],
+    width: 624,
+    height: 896,
+    sizes: bentoSizes
+  )
+
+  static let bentoWide1 = HomeResponsiveImage(
+    baseName: "bento-wide-1",
+    widths: [312, 624],
+    width: 624,
+    height: 432,
+    sizes: bentoSizes
+  )
+
+  static let bentoWide2 = HomeResponsiveImage(
+    baseName: "bento-wide-2",
+    widths: [312, 624],
+    width: 624,
+    height: 432,
+    sizes: bentoSizes
+  )
+
+  static let youtubeAvatar = HomeResponsiveImage(
+    baseName: "youtube-avatar",
+    widths: [64, 128],
+    width: 128,
+    height: 128,
+    sizes: "64px"
+  )
+
+  static let discordAvatar = HomeResponsiveImage(
+    baseName: "discord-avatar",
+    widths: [64, 128],
+    width: 128,
+    height: 128,
+    sizes: "64px"
+  )
+
+  static let chargeblast = HomeResponsiveImage(
+    baseName: "chargeblast",
+    widths: [48, 96],
+    width: 96,
+    height: 96,
+    sizes: "24px"
+  )
+}
+
+func assetImage(
+  _ name: String,
+  alt: String,
+  class className: String,
+  width: Int? = nil,
+  height: Int? = nil,
+  loading: String? = nil,
+  fetchPriority: String? = nil
+) -> Node {
+  var customAttributes: [String: String] = [:]
+  if let fetchPriority {
+    customAttributes["fetchpriority"] = fetchPriority
+  }
+
+  return img(
+    alt: alt,
+    class: className,
+    decoding: "async",
+    height: height.map { "\($0)" },
+    loading: loading,
+    src: homeAsset(name),
+    width: width.map { "\($0)" },
+    customAttributes: customAttributes
+  )
+}
+
+func responsiveHomeImage(
+  _ image: HomeResponsiveImage,
+  alt: String,
+  class className: String,
+  loading: String = "lazy",
+  fetchPriority: String? = nil
+) -> Node {
+  var customAttributes: [String: String] = [:]
+  if let fetchPriority {
+    customAttributes["fetchpriority"] = fetchPriority
+  }
+
+  return picture {
+    source(sizes: image.sizes, srcset: image.webpSrcset, type: "image/webp")
+    source(sizes: image.sizes, srcset: image.pngSrcset, type: "image/png")
+    img(
+      alt: alt,
+      class: className,
+      decoding: "async",
+      height: "\(image.height)",
+      loading: loading,
+      sizes: image.sizes,
+      src: image.fallback,
+      srcset: image.pngSrcset,
+      width: "\(image.width)",
+      customAttributes: customAttributes
+    )
+  }
 }
 
 func themedIcon(
@@ -16,8 +168,8 @@ func themedIcon(
   class className: String
 ) -> Node {
   span(class: className) {
-    img(alt: alt, class: "size-full \(Theme.Shell.hiddenDark)", src: homeAsset(light))
-    img(alt: alt, class: "size-full \(Theme.Shell.visibleDark)", src: homeAsset(dark))
+    img(alt: alt, class: "size-full \(Theme.Shell.hiddenDark)", decoding: "async", src: homeAsset(light))
+    img(alt: alt, class: "size-full \(Theme.Shell.visibleDark)", decoding: "async", src: homeAsset(dark))
   }
 }
 
@@ -28,9 +180,10 @@ struct CardBadge {
 }
 
 enum CardLeading {
-  case avatar(image: String, badge: CardBadge)
+  case avatar(image: HomeResponsiveImage, badge: CardBadge)
   case icon(light: String, dark: String, className: String)
   case image(name: String, className: String)
+  case responsiveImage(image: HomeResponsiveImage, className: String)
 }
 
 func siteCard(
@@ -98,7 +251,7 @@ func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
     switch leading {
     case let .avatar(image, badge):
       div(class: Theme.Card.avatar) {
-        assetImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
+        responsiveHomeImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
         span(class: Theme.Card.badge) {
           if let dark = badge.dark {
             themedIcon(light: badge.light, dark: dark, class: badge.className)
@@ -111,6 +264,8 @@ func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
       themedIcon(light: light, dark: dark, class: className)
     case let .image(name, className):
       assetImage(name, alt: "", class: className)
+    case let .responsiveImage(image, className):
+      responsiveHomeImage(image, alt: "", class: className)
     }
   }
 }

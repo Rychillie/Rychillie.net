@@ -2,6 +2,8 @@ import Foundation
 
 enum Site {
   static let name = "Rychillie"
+  static let baseURLString = "https://rychillie.pages.dev"
+  static let baseURL = URL(string: baseURLString)!
   static let defaultLocale = "en"
   static let portugueseLocale = "pt-BR"
   static let supportedLocales = [defaultLocale, portugueseLocale]
@@ -9,7 +11,6 @@ enum Site {
   static let notesPath = "/notes/"
   static let aboutPath = "/about/"
   static let homeAssetPath = "/static/home/"
-  static let googleFontsHref = "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Lora:wght@700&display=swap"
 
   enum Link {
     static let saga = "https://getsaga.dev/"
@@ -22,6 +23,23 @@ enum Site {
 
   static func currentLocale(_ locale: String?) -> String {
     locale ?? defaultLocale
+  }
+
+  static func pageTitle(_ title: String) -> String {
+    title == name ? name : "\(title) | \(name)"
+  }
+
+  static func absoluteURL(for path: String) -> String {
+    if path.hasPrefix("https://") || path.hasPrefix("http://") {
+      return path
+    }
+
+    let normalizedPath = path.hasPrefix("/") ? path : "/\(path)"
+    return "\(baseURLString)\(normalizedPath)"
+  }
+
+  static func openGraphLocale(for locale: String) -> String {
+    locale == portugueseLocale ? "pt_BR" : "en_US"
   }
 
   static func copy(for locale: String) -> SiteCopy {

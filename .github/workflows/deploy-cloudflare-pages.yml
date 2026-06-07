@@ -21,8 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Install Saga CLI
-        run: brew install loopwerk/tap/saga
+      - name: Install build tools
+        run: brew install loopwerk/tap/saga imagemagick
 
       - name: Build site
         run: saga build

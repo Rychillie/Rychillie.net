@@ -1,17 +1,69 @@
 import HTML
 import Saga
 
+struct LocaleAlternate {
+  let locale: String
+  let url: String
+}
+
+struct ImagePreload {
+  let href: String
+  let srcset: String
+  let sizes: String
+  let type: String
+}
+
 func baseHtml(
   title pageTitle: String,
+  description: String,
+  canonicalPath: String,
   locale: String,
+  translations: [String: String] = [:],
+  ogType: String = "website",
+  preloadImages: [ImagePreload] = [],
   @NodeBuilder children: () -> NodeConvertible
 ) -> Node {
-  html(lang: locale) {
+  let documentTitle = Site.pageTitle(pageTitle)
+  let canonicalURL = Site.absoluteURL(for: canonicalPath)
+  let alternates = translations
+    .map { LocaleAlternate(locale: $0.key, url: Site.absoluteURL(for: $0.value)) }
+    .sorted { $0.locale < $1.locale }
+  let defaultAlternateURL = alternates.first { $0.locale == Site.defaultLocale }?.url
+
+  return html(lang: locale) {
     head {
       meta(charset: "utf-8")
       meta(content: "width=device-width, initial-scale=1", name: "viewport")
-      title { pageTitle }
-      link(href: Site.googleFontsHref, rel: "stylesheet")
+      meta(content: description, name: "description")
+      meta(content: "index, follow", name: "robots")
+      title { documentTitle }
+      link(href: "/favicon.ico", rel: "icon", sizes: "any")
+      link(href: canonicalURL, rel: "canonical")
+      alternates.map { alternate in
+        link(href: alternate.url, hreflang: alternate.locale, rel: "alternate")
+      }
+      if let defaultAlternateURL {
+        link(href: defaultAlternateURL, hreflang: "x-default", rel: "alternate")
+      }
+      meta(content: documentTitle, customAttributes: ["property": "og:title"])
+      meta(content: description, customAttributes: ["property": "og:description"])
+      meta(content: canonicalURL, customAttributes: ["property": "og:url"])
+      meta(content: Site.name, customAttributes: ["property": "og:site_name"])
+      meta(content: Site.openGraphLocale(for: locale), customAttributes: ["property": "og:locale"])
+      meta(content: ogType, customAttributes: ["property": "og:type"])
+      meta(content: "summary", name: "twitter:card")
+      meta(content: documentTitle, name: "twitter:title")
+      meta(content: description, name: "twitter:description")
+      preloadImages.map { image in
+        link(
+          as: "image",
+          href: image.href,
+          imagesizes: image.sizes,
+          imagesrcset: image.srcset,
+          rel: "preload",
+          type: image.type
+        )
+      }
       link(href: Saga.hashed("/static/styles.css"), rel: "stylesheet")
     }
     body(class: Theme.Shell.body) {

@@ -1,6 +1,6 @@
 enum Theme {
   enum Shell {
-    static let body = "min-h-screen bg-white font-['IBM_Plex_Sans',sans-serif] text-neutral-800 antialiased scheme-light dark:bg-neutral-950 dark:text-neutral-200 dark:scheme-dark"
+    static let body = "min-h-screen bg-white font-sans text-neutral-800 antialiased scheme-light dark:bg-neutral-950 dark:text-neutral-200 dark:scheme-dark"
     static let main = "min-h-screen"
     static let stage = "relative min-h-screen overflow-hidden bg-white dark:bg-neutral-950"
     static let topNav = "absolute top-0 left-1/2 z-10 flex h-36 w-full -translate-x-1/2 items-baseline justify-end gap-3 bg-gradient-to-b from-white to-white/0 px-6 py-[60px] text-base font-semibold leading-6 text-neutral-800 dark:from-neutral-950 dark:to-neutral-950/0 dark:text-neutral-200 md:max-w-[640px] md:gap-5 md:px-0"
@@ -39,7 +39,7 @@ enum Theme {
 
   enum Home {
     static let intro = "flex w-full scroll-mt-36 flex-col items-start gap-4 break-words leading-none tracking-normal"
-    static let introTitle = "m-0 w-full font-['Lora',serif] text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let introTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
     static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
     static let bento = "grid w-full grid-cols-2 gap-2 md:gap-4"
     static let bentoColumn = "flex min-w-0 flex-col gap-2 md:gap-4"
@@ -52,7 +52,7 @@ enum Theme {
 
   enum Notes {
     static let header = "flex w-full flex-col items-start gap-4 break-words leading-none tracking-normal"
-    static let pageTitle = "m-0 w-full font-['Lora',serif] text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let pageTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
     static let pageText = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
     static let empty = "m-0 w-full rounded border border-neutral-200 bg-neutral-50 p-4 text-base leading-6 text-neutral-800 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
     static let list = "flex w-full flex-col gap-2 md:gap-2.5"
@@ -66,7 +66,7 @@ enum Theme {
   enum Markdown {
     static let content = [
       "markdown-content w-full break-words text-base leading-6 text-neutral-800 dark:text-neutral-200",
-      "[&_h1]:mb-5 [&_h1]:font-['Lora',serif] [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:leading-8 [&_h1]:text-[#9d2e29] dark:[&_h1]:text-[#e05e58]",
+      "[&_h1]:mb-5 [&_h1]:font-serif [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:leading-8 [&_h1]:text-[#9d2e29] dark:[&_h1]:text-[#e05e58]",
       "[&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:leading-7 [&_h2]:text-neutral-950 dark:[&_h2]:text-neutral-50",
       "[&_p]:mb-4",
       "[&_a]:text-[#9d2e29] [&_a]:underline [&_a]:decoration-neutral-400 [&_a]:underline-offset-2 hover:[&_a]:decoration-[#9d2e29] dark:[&_a]:text-[#e05e58] dark:[&_a]:decoration-neutral-600 dark:hover:[&_a]:decoration-[#e05e58]",
