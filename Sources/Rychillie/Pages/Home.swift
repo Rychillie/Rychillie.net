@@ -46,7 +46,7 @@ func renderHome(context: PageRenderingContext) -> Node {
           href: Site.Link.youtube,
           leading: .avatar(
             image: .youtubeAvatar,
-            badge: CardBadge(light: "youtube-light.svg", dark: "youtube-dark.svg", className: "h-[8.438px] w-3")
+            badge: CardBadge(icon: .youtube, className: "block h-[8.438px] w-3 text-white dark:text-neutral-950")
           )
         )
         siteCard(
@@ -55,7 +55,7 @@ func renderHome(context: PageRenderingContext) -> Node {
           href: Site.Link.community,
           leading: .avatar(
             image: .discordAvatar,
-            badge: CardBadge(light: "discord.svg", dark: nil, className: "h-[9.328px] w-3")
+            badge: CardBadge(icon: .discord, className: "block h-[9.328px] w-3")
           )
         )
       }
@@ -73,10 +73,10 @@ func renderHome(context: PageRenderingContext) -> Node {
       homeText(copy.homeLatestNotesText)
 
       div(class: Theme.Home.brandGrid) {
-        siteCard(title: "Apple", leading: .icon(light: "apple-light.svg", dark: "apple-dark.svg", className: Theme.Card.brandAppleIcon), showsArrow: false)
+        siteCard(title: "Apple", leading: .icon(.apple, className: Theme.Card.brandAppleIcon), showsArrow: false)
         siteCard(title: "Chargeblast", leading: .responsiveImage(image: .chargeblast, className: Theme.Card.brandLogo), showsArrow: false)
-        siteCard(title: "Anthropic", leading: .icon(light: "anthropic-light.svg", dark: "anthropic-dark.svg", className: Theme.Card.brandIcon), showsArrow: false)
-        siteCard(title: "OpenAI", leading: .icon(light: "openai-light.svg", dark: "openai-dark.svg", className: Theme.Card.brandOpenAIIcon), showsArrow: false)
+        siteCard(title: "Anthropic", leading: .icon(.anthropic, className: Theme.Card.brandIcon), showsArrow: false)
+        siteCard(title: "OpenAI", leading: .icon(.openAI, className: Theme.Card.brandOpenAIIcon), showsArrow: false)
       }
 
       homeText(copy.homeBrandText)

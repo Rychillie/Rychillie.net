@@ -5,10 +5,6 @@ func imageAsset(_ name: String) -> String {
   "\(Site.imageAssetPath)\(name)"
 }
 
-func iconAsset(_ name: String) -> String {
-  "\(Site.iconAssetPath)\(name)"
-}
-
 struct ResponsiveImage {
   let baseName: String
   let widths: [Int]
@@ -135,25 +131,6 @@ func assetImage(
   )
 }
 
-func iconImage(
-  _ name: String,
-  alt: String,
-  class className: String,
-  width: Int? = nil,
-  height: Int? = nil,
-  loading: String? = nil
-) -> Node {
-  img(
-    alt: alt,
-    class: className,
-    decoding: "async",
-    height: height.map { "\($0)" },
-    loading: loading,
-    src: iconAsset(name),
-    width: width.map { "\($0)" }
-  )
-}
-
 func responsiveImage(
   _ image: ResponsiveImage,
   alt: String,
@@ -184,27 +161,14 @@ func responsiveImage(
   }
 }
 
-func themedIcon(
-  light: String,
-  dark: String,
-  alt: String = "",
-  class className: String
-) -> Node {
-  span(class: className) {
-    img(alt: alt, class: "size-full \(Theme.Shell.hiddenDark)", decoding: "async", src: iconAsset(light))
-    img(alt: alt, class: "size-full \(Theme.Shell.visibleDark)", decoding: "async", src: iconAsset(dark))
-  }
-}
-
 struct CardBadge {
-  let light: String
-  let dark: String?
+  let icon: SiteIcon
   let className: String
 }
 
 enum CardLeading {
   case avatar(image: ResponsiveImage, badge: CardBadge)
-  case icon(light: String, dark: String, className: String)
+  case icon(SiteIcon, className: String)
   case image(name: String, className: String)
   case responsiveImage(image: ResponsiveImage, className: String)
 }
@@ -264,7 +228,7 @@ func siteCardContents(
   }
 
   if showsArrow {
-    themedIcon(light: "arrow-card-light.svg", dark: "arrow-card-dark.svg", class: Theme.Card.arrow)
+    siteIcon(.arrowUpRight, class: Theme.Card.arrow)
   }
 }
 
@@ -276,15 +240,11 @@ func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
       div(class: Theme.Card.avatar) {
         responsiveImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
         span(class: Theme.Card.badge) {
-          if let dark = badge.dark {
-            themedIcon(light: badge.light, dark: dark, class: badge.className)
-          } else {
-            iconImage(badge.light, alt: "", class: badge.className)
-          }
+          siteIcon(badge.icon, class: badge.className)
         }
       }
-    case let .icon(light, dark, className):
-      themedIcon(light: light, dark: dark, class: className)
+    case let .icon(icon, className):
+      siteIcon(icon, class: className)
     case let .image(name, className):
       assetImage(name, alt: "", class: className)
     case let .responsiveImage(image, className):
@@ -299,7 +259,7 @@ func homeText(_ text: String) -> Node {
 
 func inlineActionLink(title: String, href: String) -> Node {
   a(class: Theme.Card.inlineAction, href: href) {
-    themedIcon(light: "arrow-inline-light.svg", dark: "arrow-inline-dark.svg", class: Theme.Card.inlineArrow)
+    siteIcon(.arrowUpRight, class: Theme.Card.inlineArrow)
     span { title }
   }
 }
