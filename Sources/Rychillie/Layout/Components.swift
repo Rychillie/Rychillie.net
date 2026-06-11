@@ -131,6 +131,13 @@ func assetImage(
   )
 }
 
+func waveAnimation(alt: String) -> Node {
+  picture {
+    source(srcset: imageAsset("wave-58.webp"), type: "image/webp")
+    assetImage("wave-58.gif", alt: alt, class: Theme.Home.wave, width: 58, height: 56, loading: "eager")
+  }
+}
+
 func responsiveImage(
   _ image: ResponsiveImage,
   alt: String,

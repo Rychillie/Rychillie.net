@@ -33,6 +33,7 @@ generated_sources=()
 cleanup_variants() {
   local output_name="$1"
 
+  rm -f "$OUTPUT_DIR/$output_name"-*.gif(N)
   rm -f "$OUTPUT_DIR/$output_name"-*.png(N)
   rm -f "$OUTPUT_DIR/$output_name"-*.webp(N)
 }
@@ -81,6 +82,38 @@ generate_responsive_set() {
   generated_sources+=("$source_name")
 }
 
+generate_wave_animation() {
+  local source_name="wave.gif"
+  local output_name="wave"
+  local source_path="$SOURCE_DIR/$source_name"
+  local gif_path="$OUTPUT_DIR/$output_name-58.gif"
+  local webp_path="$OUTPUT_DIR/$output_name-58.webp"
+
+  if [[ ! -f "$source_path" ]]; then
+    echo "Missing source image: $source_path"
+    exit 1
+  fi
+
+  cleanup_variants "$output_name"
+
+  magick "$source_path" \
+    -coalesce \
+    -resize "58x56" \
+    -layers Optimize \
+    -strip \
+    "$gif_path"
+
+  magick "$source_path" \
+    -coalesce \
+    -resize "58x56" \
+    -layers Optimize \
+    -strip \
+    -quality 80 \
+    "$webp_path"
+
+  generated_sources+=("$source_name")
+}
+
 remove_generated_sources() {
   local source_name
 
@@ -96,5 +129,6 @@ generate_responsive_set "bento-wide-2.png" "bento-wide-2" 312 216 624 432
 generate_responsive_set "youtube-avatar.png" "youtube-avatar" 64 64 128 128
 generate_responsive_set "discord-avatar.png" "discord-avatar" 64 64 128 128
 generate_responsive_set "chargeblast.png" "chargeblast" 48 48 96 96
+generate_wave_animation
 
 remove_generated_sources
