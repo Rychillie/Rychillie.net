@@ -1,11 +1,15 @@
 import HTML
 import Saga
 
-func homeAsset(_ name: String) -> String {
-  "\(Site.homeAssetPath)\(name)"
+func imageAsset(_ name: String) -> String {
+  "\(Site.imageAssetPath)\(name)"
 }
 
-struct HomeResponsiveImage {
+func iconAsset(_ name: String) -> String {
+  "\(Site.iconAssetPath)\(name)"
+}
+
+struct ResponsiveImage {
   let baseName: String
   let widths: [Int]
   let width: Int
@@ -34,7 +38,7 @@ struct HomeResponsiveImage {
   }
 
   private func path(fileExtension: String, width: Int) -> String {
-    homeAsset("optimized/\(baseName)-\(width).\(fileExtension)")
+    imageAsset("optimized/\(baseName)-\(width).\(fileExtension)")
   }
 
   private func srcset(fileExtension: String) -> String {
@@ -45,10 +49,10 @@ struct HomeResponsiveImage {
   }
 }
 
-extension HomeResponsiveImage {
+extension ResponsiveImage {
   static let bentoSizes = "(min-width: 768px) 312px, calc((100vw - 56px) / 2)"
 
-  static let bentoPortrait1 = HomeResponsiveImage(
+  static let bentoPortrait1 = ResponsiveImage(
     baseName: "bento-portrait-1",
     widths: [312, 624],
     width: 624,
@@ -56,7 +60,7 @@ extension HomeResponsiveImage {
     sizes: bentoSizes
   )
 
-  static let bentoPortrait2 = HomeResponsiveImage(
+  static let bentoPortrait2 = ResponsiveImage(
     baseName: "bento-portrait-2",
     widths: [312, 624],
     width: 624,
@@ -64,7 +68,7 @@ extension HomeResponsiveImage {
     sizes: bentoSizes
   )
 
-  static let bentoWide1 = HomeResponsiveImage(
+  static let bentoWide1 = ResponsiveImage(
     baseName: "bento-wide-1",
     widths: [312, 624],
     width: 624,
@@ -72,7 +76,7 @@ extension HomeResponsiveImage {
     sizes: bentoSizes
   )
 
-  static let bentoWide2 = HomeResponsiveImage(
+  static let bentoWide2 = ResponsiveImage(
     baseName: "bento-wide-2",
     widths: [312, 624],
     width: 624,
@@ -80,7 +84,7 @@ extension HomeResponsiveImage {
     sizes: bentoSizes
   )
 
-  static let youtubeAvatar = HomeResponsiveImage(
+  static let youtubeAvatar = ResponsiveImage(
     baseName: "youtube-avatar",
     widths: [64, 128],
     width: 128,
@@ -88,7 +92,7 @@ extension HomeResponsiveImage {
     sizes: "64px"
   )
 
-  static let discordAvatar = HomeResponsiveImage(
+  static let discordAvatar = ResponsiveImage(
     baseName: "discord-avatar",
     widths: [64, 128],
     width: 128,
@@ -96,7 +100,7 @@ extension HomeResponsiveImage {
     sizes: "64px"
   )
 
-  static let chargeblast = HomeResponsiveImage(
+  static let chargeblast = ResponsiveImage(
     baseName: "chargeblast",
     widths: [48, 96],
     width: 96,
@@ -125,14 +129,33 @@ func assetImage(
     decoding: "async",
     height: height.map { "\($0)" },
     loading: loading,
-    src: homeAsset(name),
+    src: imageAsset(name),
     width: width.map { "\($0)" },
     customAttributes: customAttributes
   )
 }
 
-func responsiveHomeImage(
-  _ image: HomeResponsiveImage,
+func iconImage(
+  _ name: String,
+  alt: String,
+  class className: String,
+  width: Int? = nil,
+  height: Int? = nil,
+  loading: String? = nil
+) -> Node {
+  img(
+    alt: alt,
+    class: className,
+    decoding: "async",
+    height: height.map { "\($0)" },
+    loading: loading,
+    src: iconAsset(name),
+    width: width.map { "\($0)" }
+  )
+}
+
+func responsiveImage(
+  _ image: ResponsiveImage,
   alt: String,
   class className: String,
   loading: String = "lazy",
@@ -168,8 +191,8 @@ func themedIcon(
   class className: String
 ) -> Node {
   span(class: className) {
-    img(alt: alt, class: "size-full \(Theme.Shell.hiddenDark)", decoding: "async", src: homeAsset(light))
-    img(alt: alt, class: "size-full \(Theme.Shell.visibleDark)", decoding: "async", src: homeAsset(dark))
+    img(alt: alt, class: "size-full \(Theme.Shell.hiddenDark)", decoding: "async", src: iconAsset(light))
+    img(alt: alt, class: "size-full \(Theme.Shell.visibleDark)", decoding: "async", src: iconAsset(dark))
   }
 }
 
@@ -180,10 +203,10 @@ struct CardBadge {
 }
 
 enum CardLeading {
-  case avatar(image: HomeResponsiveImage, badge: CardBadge)
+  case avatar(image: ResponsiveImage, badge: CardBadge)
   case icon(light: String, dark: String, className: String)
   case image(name: String, className: String)
-  case responsiveImage(image: HomeResponsiveImage, className: String)
+  case responsiveImage(image: ResponsiveImage, className: String)
 }
 
 func siteCard(
@@ -251,12 +274,12 @@ func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
     switch leading {
     case let .avatar(image, badge):
       div(class: Theme.Card.avatar) {
-        responsiveHomeImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
+        responsiveImage(image, alt: "\(title) profile photo", class: Theme.Card.avatarImage)
         span(class: Theme.Card.badge) {
           if let dark = badge.dark {
             themedIcon(light: badge.light, dark: dark, class: badge.className)
           } else {
-            assetImage(badge.light, alt: "", class: badge.className)
+            iconImage(badge.light, alt: "", class: badge.className)
           }
         }
       }
@@ -265,7 +288,7 @@ func cardLeading(_ leading: CardLeading?, title: String) -> NodeConvertible {
     case let .image(name, className):
       assetImage(name, alt: "", class: className)
     case let .responsiveImage(image, className):
-      responsiveHomeImage(image, alt: "", class: className)
+      responsiveImage(image, alt: "", class: className)
     }
   }
 }

@@ -7,12 +7,12 @@ set -o pipefail
 OUTPUT_ROOT="${1:-deploy}"
 SCRIPT_DIR="${0:A:h}"
 REPO_ROOT="${SCRIPT_DIR:h:h}"
-SOURCE_DIR="$REPO_ROOT/content/static/home"
+SOURCE_DIR="$REPO_ROOT/content/static/images"
 
 if [[ "$OUTPUT_ROOT" = /* ]]; then
-  OUTPUT_DIR="$OUTPUT_ROOT/static/home/optimized"
+  OUTPUT_DIR="$OUTPUT_ROOT/static/images/optimized"
 else
-  OUTPUT_DIR="$REPO_ROOT/$OUTPUT_ROOT/static/home/optimized"
+  OUTPUT_DIR="$REPO_ROOT/$OUTPUT_ROOT/static/images/optimized"
 fi
 
 if ! command -v magick >/dev/null 2>&1; then

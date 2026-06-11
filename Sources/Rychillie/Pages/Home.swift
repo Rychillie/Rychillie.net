@@ -17,7 +17,7 @@ func renderHome(context: PageRenderingContext) -> Node {
     locale: locale,
     translations: context.translations,
     preloadImages: [
-      HomeResponsiveImage.bentoPortrait2.preload,
+      ResponsiveImage.bentoPortrait2.preload,
     ]
   ) {
     pageFrame(activeSection: .home, locale: locale, translations: context.translations) {
@@ -28,12 +28,12 @@ func renderHome(context: PageRenderingContext) -> Node {
 
       div(class: Theme.Home.bento) {
         div(class: Theme.Home.bentoColumn) {
-          responsiveHomeImage(.bentoPortrait1, alt: "Rychillie portrait", class: Theme.Home.imageTall, loading: "eager")
-          responsiveHomeImage(.bentoWide1, alt: "BrazilJS event", class: Theme.Home.imageShort, loading: "eager")
+          responsiveImage(.bentoPortrait1, alt: "Rychillie portrait", class: Theme.Home.imageTall, loading: "eager")
+          responsiveImage(.bentoWide1, alt: "BrazilJS event", class: Theme.Home.imageShort, loading: "eager")
         }
         div(class: Theme.Home.bentoColumn) {
-          responsiveHomeImage(.bentoWide2, alt: "Rychillie speaking", class: Theme.Home.imageShort, loading: "eager")
-          responsiveHomeImage(.bentoPortrait2, alt: "Rychillie on stage", class: Theme.Home.imageTall, loading: "eager", fetchPriority: "high")
+          responsiveImage(.bentoWide2, alt: "Rychillie speaking", class: Theme.Home.imageShort, loading: "eager")
+          responsiveImage(.bentoPortrait2, alt: "Rychillie on stage", class: Theme.Home.imageTall, loading: "eager", fetchPriority: "high")
         }
       }
 

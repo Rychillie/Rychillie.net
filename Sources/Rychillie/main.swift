@@ -21,10 +21,10 @@ func removeTailwindSourceFromDeploy(_ saga: Saga) throws {
   }
 }
 
-func generateHomeImages(_ saga: Saga) throws {
+func generateImages(_ saga: Saga) throws {
   let process = Process()
   process.executableURL = URL(fileURLWithPath: "/bin/zsh")
-  process.arguments = ["Sources/Scripts/generate-home-images.sh", saga.outputPath.string]
+  process.arguments = ["Sources/Scripts/generate-images.sh", saga.outputPath.string]
 
   try process.run()
   process.waitUntilExit()
@@ -33,7 +33,7 @@ func generateHomeImages(_ saga: Saga) throws {
     throw NSError(
       domain: "Rychillie.ImageGeneration",
       code: Int(process.terminationStatus),
-      userInfo: [NSLocalizedDescriptionKey: "Home image generation failed with status \(process.terminationStatus)"]
+      userInfo: [NSLocalizedDescriptionKey: "Image generation failed with status \(process.terminationStatus)"]
     )
   }
 }
@@ -49,7 +49,7 @@ try await Saga(input: "content", output: "deploy")
   .afterWrite { saga in
     try removeTailwindSourceFromDeploy(saga)
     try LLMS.writeMarkdownNotes(saga)
-    try generateHomeImages(saga)
+    try generateImages(saga)
   }
   .postProcess { content, relativePath in
     guard relativePath.extension == "html" else { return content }
