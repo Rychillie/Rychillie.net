@@ -38,7 +38,7 @@ struct ResponsiveImage {
   }
 
   private func path(fileExtension: String, width: Int) -> String {
-    imageAsset("optimized/\(baseName)-\(width).\(fileExtension)")
+    imageAsset("\(baseName)-\(width).\(fileExtension)")
   }
 
   private func srcset(fileExtension: String) -> String {
