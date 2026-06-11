@@ -22,7 +22,11 @@ func renderHome(context: PageRenderingContext) -> Node {
   ) {
     pageFrame(activeSection: .home, locale: locale, translations: context.translations) {
       section(class: Theme.Home.intro, id: "about") {
-        h1(class: Theme.Home.introTitle) { copy.introTitle }
+        h1(class: Theme.Home.introTitle) {
+          copy.introTitle
+          " "
+          waveAnimation(alt: copy.introWaveAlt)
+        }
         homeText(copy.intro)
       }
 

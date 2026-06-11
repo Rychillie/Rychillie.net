@@ -71,6 +71,7 @@ struct SiteCopy {
   let notesNav: String
   let aboutNav: String
   let introTitle: String
+  let introWaveAlt: String
   let intro: String
   let homePrimaryText: String
   let homeSocialText: String
@@ -106,7 +107,8 @@ struct SiteCopy {
     homeNav: "home",
     notesNav: "notes",
     aboutNav: "about",
-    introTitle: "Hey, I'm Rychillie 👋",
+    introTitle: "Hey, I'm Rychillie",
+    introWaveAlt: "Waving hand",
     intro: "A Brazilian Software Engineer creating content and sharing knowledge over the internet. My experience involves pushing the limits of what we can build with code. Design and technology lover, collaborating with Open Source projects.",
     homePrimaryText: "Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim. Consectetur dolore nisi ex ex velit aute cillum eiusmod commodo eiusmod.",
     homeSocialText: "Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim.",
@@ -134,7 +136,8 @@ struct SiteCopy {
     homeNav: "início",
     notesNav: "notas",
     aboutNav: "sobre",
-    introTitle: "Oi, eu sou Rychillie 👋",
+    introTitle: "Oi, eu sou Rychillie",
+    introWaveAlt: "Mão acenando",
     intro: "Um Engenheiro de Software brasileiro criando conteúdo e compartilhando conhecimento pela internet. Minha experiência envolve explorar os limites do que conseguimos construir com código. Amo design e tecnologia, e colaboro com projetos Open Source.",
     homePrimaryText: "Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim. Consectetur dolore nisi ex ex velit aute cillum eiusmod commodo eiusmod.",
     homeSocialText: "Pariatur dolore excepteur officia exercitation minim laborum est fugiat. Anim fugiat eiusmod mollit magna eu ipsum fugiat pariatur dolor deserunt magna. Nostrud non eiusmod veniam enim elit minim sint consequat mollit Lorem minim.",

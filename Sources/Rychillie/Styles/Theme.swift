@@ -42,6 +42,7 @@ enum Theme {
   enum Home {
     static let intro = "flex w-full scroll-mt-36 flex-col items-start gap-4 break-words leading-none tracking-normal"
     static let introTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let wave = "inline-block h-7 w-auto align-[-0.18em]"
     static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
     static let bento = "grid w-full grid-cols-2 gap-2 md:gap-4"
     static let bentoColumn = "flex min-w-0 flex-col gap-2 md:gap-4"
