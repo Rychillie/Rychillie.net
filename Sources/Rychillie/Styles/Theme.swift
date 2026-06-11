@@ -59,6 +59,11 @@ enum Theme {
     static let article = "w-full"
     static let articleHeader = "mb-6 flex w-full flex-col items-start gap-3"
     static let backLink = "text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
+    static let articleMeta = "flex w-full flex-wrap items-center gap-x-1 gap-y-2"
+    static let metaGroup = "flex min-w-0 items-center gap-1"
+    static let actions = "flex w-full items-center gap-1 md:w-auto"
+    static let desktopMetaDot = "hidden size-0.5 rounded-full bg-neutral-800 dark:bg-neutral-200 md:block"
+    static let actionButton = "m-0 appearance-none border-0 bg-transparent p-0 text-sm font-normal leading-5 text-[#9d2e29] underline decoration-neutral-400 underline-offset-2 transition-colors hover:decoration-[#9d2e29] dark:text-[#e05e58] dark:decoration-neutral-600 dark:hover:decoration-[#e05e58]"
     static let tags = "m-0 flex list-none flex-wrap gap-2 p-0"
     static let tag = "rounded border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 text-sm leading-5 text-neutral-800 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
   }
