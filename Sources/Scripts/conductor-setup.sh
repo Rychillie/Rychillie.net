@@ -21,9 +21,16 @@ if ! command -v magick >/dev/null 2>&1; then
   exit 1
 fi
 
+if ! command -v swiftlint >/dev/null 2>&1; then
+  echo "SwiftLint was not found in PATH."
+  echo "Install it with: brew install swiftlint"
+  exit 1
+fi
+
 SWIFT_VERSION="$(swift --version 2>&1 | sed -n '1p')"
 
 echo "Swift: $SWIFT_VERSION"
 echo "Saga CLI: $(command -v saga)"
 echo "ImageMagick: $(command -v magick)"
+echo "SwiftLint: $(command -v swiftlint)"
 echo "Conductor setup complete."
