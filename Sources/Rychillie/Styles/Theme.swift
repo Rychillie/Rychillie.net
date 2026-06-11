@@ -27,7 +27,7 @@ enum Theme {
     static let meta = "m-0 text-sm font-normal leading-5 text-neutral-800 dark:text-neutral-200"
     static let metaRow = "flex flex-wrap items-center gap-1"
     static let metaDot = "size-0.5 rounded-full bg-neutral-800 dark:bg-neutral-200"
-    static let arrow = "block size-6 shrink-0 text-neutral-950 transition-colors group-hover:text-[#9d2e29] dark:text-neutral-50 dark:group-hover:text-[#e05e58]"
+    static let arrow = "block size-6 shrink-0 text-neutral-950 dark:text-neutral-50"
     static let avatar = "relative size-16 shrink-0"
     static let avatarImage = "size-16 rounded-full object-cover"
     static let badge = "absolute bottom-0 right-0 flex size-5 items-center justify-center rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
