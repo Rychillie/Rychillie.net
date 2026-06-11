@@ -85,6 +85,9 @@ struct SiteCopy {
   let notesDescription: String
   let noNotes: String
   let aboutTitle: String
+  let copyLinkAction: String
+  let copyMarkdownAction: String
+  let copiedAction: String
   let articleLabel: String
   let talkLabel: String
   let videoLabel: String
@@ -118,6 +121,9 @@ struct SiteCopy {
     notesDescription: "Writing, talks, experiments, and technical notes.",
     noNotes: "No notes published yet.",
     aboutTitle: "About",
+    copyLinkAction: "Copy Link",
+    copyMarkdownAction: "Markdown",
+    copiedAction: "Copied",
     articleLabel: "Article",
     talkLabel: "Talk",
     videoLabel: "Video",
@@ -143,6 +149,9 @@ struct SiteCopy {
     notesDescription: "Textos, talks, experimentos e notas técnicas.",
     noNotes: "Nenhuma nota publicada ainda.",
     aboutTitle: "Sobre",
+    copyLinkAction: "Copiar link",
+    copyMarkdownAction: "Markdown",
+    copiedAction: "Copiado",
     articleLabel: "Artigo",
     talkLabel: "Talk",
     videoLabel: "Vídeo",

@@ -20,6 +20,7 @@ func baseHtml(
   locale: String,
   translations: [String: String] = [:],
   ogType: String = "website",
+  markdownAlternatePath: String? = nil,
   preloadImages: [ImagePreload] = [],
   @NodeBuilder children: () -> NodeConvertible
 ) -> Node {
@@ -44,6 +45,9 @@ func baseHtml(
       }
       if let defaultAlternateURL {
         link(href: defaultAlternateURL, hreflang: "x-default", rel: "alternate")
+      }
+      if let markdownAlternatePath {
+        link(href: Site.absoluteURL(for: markdownAlternatePath), rel: "alternate", type: "text/markdown")
       }
       meta(content: documentTitle, customAttributes: ["property": "og:title"])
       meta(content: description, customAttributes: ["property": "og:description"])

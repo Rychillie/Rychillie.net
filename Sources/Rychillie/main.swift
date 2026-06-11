@@ -48,6 +48,7 @@ try await Saga(input: "content", output: "deploy")
   }
   .afterWrite { saga in
     try removeTailwindSourceFromDeploy(saga)
+    try LLMS.writeMarkdownNotes(saga)
     try generateHomeImages(saga)
   }
   .postProcess { content, relativePath in
@@ -73,6 +74,8 @@ try await Saga(input: "content", output: "deploy")
   .createPage("about/index.html", forEachLocale: swim(renderAbout))
   .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
   .createPage("articles/hello-world/index.html", using: Saga.redirectHTML(to: "\(Site.notesPath)hello-world/"))
+  .createPage("llms.txt", using: LLMS.renderIndex)
+  .createPage("llms-full.txt", using: LLMS.renderFull)
   .createPage(
     "sitemap.xml",
     using: Saga.sitemap(baseURL: Site.baseURL) { path in
