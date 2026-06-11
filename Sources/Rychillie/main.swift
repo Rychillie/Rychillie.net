@@ -21,6 +21,13 @@ func removeTailwindSourceFromDeploy(_ saga: Saga) throws {
   }
 }
 
+func removeStaticIconsFromDeploy(_ saga: Saga) throws {
+  let iconsPath = [saga.outputPath.string, "static", "icons"].joined(separator: "/")
+  if FileManager.default.fileExists(atPath: iconsPath) {
+    try FileManager.default.removeItem(atPath: iconsPath)
+  }
+}
+
 func generateImages(_ saga: Saga) throws {
   let process = Process()
   process.executableURL = URL(fileURLWithPath: "/bin/zsh")
@@ -48,6 +55,7 @@ try await Saga(input: "content", output: "deploy")
   }
   .afterWrite { saga in
     try removeTailwindSourceFromDeploy(saga)
+    try removeStaticIconsFromDeploy(saga)
     try LLMS.writeMarkdownNotes(saga)
     try generateImages(saga)
   }

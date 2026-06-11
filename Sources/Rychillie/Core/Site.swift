@@ -11,7 +11,6 @@ enum Site {
   static let notesPath = "/notes/"
   static let aboutPath = "/about/"
   static let imageAssetPath = "/static/images/"
-  static let iconAssetPath = "/static/icons/"
 
   enum Link {
     static let saga = "https://getsaga.dev/"

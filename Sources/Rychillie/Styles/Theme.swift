@@ -9,12 +9,14 @@ enum Theme {
     static let footerActions = "flex flex-wrap items-center gap-3 pt-2 md:gap-4"
     static let container = "relative mx-auto flex w-full flex-col items-start gap-6 px-6 py-36 md:max-w-[640px] md:px-0"
     static let bottomFade = "pointer-events-none absolute bottom-0 left-1/2 h-36 w-full -translate-x-1/2 bg-gradient-to-b from-white/0 to-white dark:from-neutral-950/0 dark:to-neutral-950 md:max-w-[640px]"
-    static let hiddenDark = "block dark:hidden"
-    static let visibleDark = "hidden dark:block"
   }
 
   enum Card {
-    static let linked = "flex min-h-[88px] w-full items-center justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 py-3 pl-3 pr-4 no-underline transition-colors hover:border-neutral-300 hover:bg-white dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-neutral-700 dark:hover:bg-neutral-900/50"
+    static let linked = [
+      "group flex min-h-[88px] w-full items-center justify-between gap-3 rounded border border-neutral-200",
+      "bg-neutral-50 py-3 pl-3 pr-4 no-underline transition-colors hover:border-neutral-300 hover:bg-white",
+      "dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-neutral-700 dark:hover:bg-neutral-900/50",
+    ].joined(separator: " ")
     static let staticCard = "flex min-h-[88px] w-full items-center justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 py-3 pl-3 pr-4 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950"
     static let brand = "flex h-12 items-center justify-between gap-3 rounded border border-neutral-200 bg-neutral-50 py-3 pl-3 pr-4 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950"
     static let content = "flex min-w-0 flex-1 flex-col justify-center gap-1"
@@ -25,16 +27,16 @@ enum Theme {
     static let meta = "m-0 text-sm font-normal leading-5 text-neutral-800 dark:text-neutral-200"
     static let metaRow = "flex flex-wrap items-center gap-1"
     static let metaDot = "size-0.5 rounded-full bg-neutral-800 dark:bg-neutral-200"
-    static let arrow = "size-6 shrink-0"
+    static let arrow = "block size-6 shrink-0 text-neutral-950 transition-colors group-hover:text-[#9d2e29] dark:text-neutral-50 dark:group-hover:text-[#e05e58]"
     static let avatar = "relative size-16 shrink-0"
     static let avatarImage = "size-16 rounded-full object-cover"
     static let badge = "absolute bottom-0 right-0 flex size-5 items-center justify-center rounded-full border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950"
-    static let brandIcon = "size-6 shrink-0"
-    static let brandAppleIcon = "h-6 w-[19.594px] shrink-0"
-    static let brandOpenAIIcon = "h-6 w-[23.631px] shrink-0"
+    static let brandIcon = "block size-6 shrink-0 text-neutral-950 dark:text-neutral-50"
+    static let brandAppleIcon = "block h-6 w-[19.594px] shrink-0 text-neutral-950 dark:text-neutral-50"
+    static let brandOpenAIIcon = "block h-6 w-[23.631px] shrink-0 text-neutral-950 dark:text-neutral-50"
     static let brandLogo = "size-6 shrink-0 overflow-hidden rounded-[3px] object-cover"
     static let inlineAction = "flex items-center gap-2 text-base font-normal leading-6 text-neutral-800 no-underline hover:text-[#9d2e29] dark:text-neutral-200 dark:hover:text-[#e05e58]"
-    static let inlineArrow = "size-4 shrink-0"
+    static let inlineArrow = "block size-4 shrink-0"
   }
 
   enum Home {
