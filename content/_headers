@@ -4,10 +4,10 @@
 /static/styles-*.css
   Cache-Control: public, max-age=31536000, immutable
 
-/static/home/optimized/*
+/static/images/optimized/*
   Cache-Control: public, max-age=31536000, immutable
 
-/static/home/*.svg
+/static/icons/*.svg
   Cache-Control: public, max-age=31536000, immutable
 
 /robots.txt
