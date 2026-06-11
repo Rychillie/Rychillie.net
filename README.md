@@ -9,11 +9,13 @@ The site is generated from localized Markdown content in `content/`, rendered by
 - Swift 6.0 or newer
 - macOS 14 or newer
 - Saga CLI
+- ImageMagick
+- SwiftLint
 
-Install the Saga CLI with Homebrew:
+Install the build tools with Homebrew:
 
 ```sh
-brew install loopwerk/tap/saga
+brew install loopwerk/tap/saga imagemagick swiftlint
 ```
 
 ## Development
@@ -28,6 +30,12 @@ Build the static site:
 
 ```sh
 saga build
+```
+
+Run SwiftLint:
+
+```sh
+swiftlint lint --quiet
 ```
 
 Saga reads localized content from `content/` and writes the generated site to `deploy/`.
@@ -84,16 +92,17 @@ The workflow:
 
 1. Runs on `macos-latest`.
 2. Checks out the repository.
-3. Installs the Saga CLI with Homebrew.
-4. Runs `saga build`.
-5. Verifies `deploy/index.html`.
-6. Deploys `deploy/` to Cloudflare Pages with `cloudflare/wrangler-action@v3`.
+3. Installs the Saga CLI, ImageMagick, and SwiftLint with Homebrew.
+4. Runs `swiftlint lint --quiet`.
+5. Runs `saga build`.
+6. Verifies `deploy/index.html`.
+7. Deploys `deploy/` to Cloudflare Pages with `cloudflare/wrangler-action@v3`.
 
 ## Conductor
 
 This repository includes shared Conductor scripts in `conductor.json`.
 
-- Setup verifies that Swift and the Saga CLI are available.
+- Setup verifies that Swift, the Saga CLI, ImageMagick, and SwiftLint are available.
 - Run starts `saga dev` on `CONDUCTOR_PORT`, falling back to port `3000` outside Conductor.
 
 Conductor scripts are configured to run concurrently because each workspace receives its own port range.

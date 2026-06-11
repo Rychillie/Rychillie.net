@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Lint and Build
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install build tools
+        run: brew install loopwerk/tap/saga imagemagick swiftlint
+
+      - name: Lint Swift
+        run: swiftlint lint --quiet
+
+      - name: Build site
+        run: saga build
+
+      - name: Verify build output
+        run: test -f deploy/index.html
