@@ -114,8 +114,8 @@ private func siteFooter(locale: String, translations: [String: String]) -> Node 
   let copy = Site.copy(for: locale)
 
   return footer(class: Theme.Shell.footerActions) {
-    inlineActionLink(title: copy.followLink, href: Site.Link.follow)
-    inlineActionLink(title: copy.emailUpdatesLink, href: Site.Link.emailUpdates)
+    inlineActionLink(title: copy.followLink, href: Site.Link.follow, opensInNewTab: true)
+    inlineActionLink(title: copy.emailUpdatesLink, href: Site.Link.emailUpdates, opensInNewTab: true)
 
     if let translationURL = languageSwitchURL(currentLocale: locale, translations: translations) {
       inlineActionLink(title: copy.languageSwitchLink, href: translationURL)

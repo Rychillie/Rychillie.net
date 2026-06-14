@@ -31,13 +31,12 @@ func renderHome(context: PageRenderingContext) -> Node {
       }
 
       div(class: Theme.Home.bento) {
-        div(class: Theme.Home.bentoColumn) {
-          responsiveImage(.bentoPortrait1, alt: "Rychillie portrait", class: Theme.Home.imageTall, loading: "eager")
-          responsiveImage(.bentoWide1, alt: "BrazilJS event", class: Theme.Home.imageShort, loading: "eager")
-        }
-        div(class: Theme.Home.bentoColumn) {
-          responsiveImage(.bentoWide2, alt: "Rychillie speaking", class: Theme.Home.imageShort, loading: "eager")
-          responsiveImage(.bentoPortrait2, alt: "Rychillie on stage", class: Theme.Home.imageTall, loading: "eager", fetchPriority: "high")
+        homeBentoColumns(locale: locale).map { column in
+          div(class: Theme.Home.bentoColumn) {
+            column.map { item in
+              homeBentoLink(item)
+            }
+          }
         }
       }
 
@@ -51,7 +50,8 @@ func renderHome(context: PageRenderingContext) -> Node {
           leading: .avatar(
             image: .youtubeAvatar,
             badge: CardBadge(icon: .youtube, className: "block h-[8.438px] w-3 text-white dark:text-neutral-950")
-          )
+          ),
+          opensInNewTab: true
         )
         siteCard(
           title: "@rychillie",
@@ -60,7 +60,8 @@ func renderHome(context: PageRenderingContext) -> Node {
           leading: .avatar(
             image: .discordAvatar,
             badge: CardBadge(icon: .discord, className: "block h-[9.328px] w-3")
-          )
+          ),
+          opensInNewTab: true
         )
       }
 
@@ -85,6 +86,109 @@ func renderHome(context: PageRenderingContext) -> Node {
 
       homeText(copy.homeBrandText)
 
+    }
+  }
+}
+
+private enum HomeBentoVariant {
+  case tall
+  case short
+
+  var imageClass: String {
+    switch self {
+    case .tall: Theme.Home.imageTall
+    case .short: Theme.Home.imageShort
+    }
+  }
+}
+
+private struct HomeBentoItem {
+  let title: String
+  let href: String
+  let image: ResponsiveImage
+  let alt: String
+  let variant: HomeBentoVariant
+  let loading: String
+  let fetchPriority: String?
+
+  init(
+    title: String,
+    href: String,
+    image: ResponsiveImage,
+    alt: String,
+    variant: HomeBentoVariant,
+    loading: String = "lazy",
+    fetchPriority: String? = nil
+  ) {
+    self.title = title
+    self.href = href
+    self.image = image
+    self.alt = alt
+    self.variant = variant
+    self.loading = loading
+    self.fetchPriority = fetchPriority
+  }
+}
+
+private func homeBentoColumns(locale: String) -> [[HomeBentoItem]] {
+  return [
+    [
+      HomeBentoItem(
+        title: "Build in Public Meetup 🥑💬",
+        href: homeNotePath(slug: "build-in-public-meetup-2026", locale: locale),
+        image: .bentoPortrait1,
+        alt: "Build in Public Meetup",
+        variant: .tall,
+        loading: "eager"
+      ),
+      HomeBentoItem(
+        title: "BrazilJS Conf 2024",
+        href: homeNotePath(slug: "braziljs-conf-2024", locale: locale),
+        image: .bentoWide1,
+        alt: "BrazilJS Conf 2024",
+        variant: .short,
+        loading: "eager"
+      ),
+    ],
+    [
+      HomeBentoItem(
+        title: "ClawCon Belo Horizonte presented by Hostinger",
+        href: homeNotePath(slug: "clawcon-belo-horizonte-2026", locale: locale),
+        image: .bentoWide2,
+        alt: "ClawCon Belo Horizonte presentation",
+        variant: .short,
+        loading: "eager"
+      ),
+      HomeBentoItem(
+        title: "ClawCon Belo Horizonte presented by Hostinger",
+        href: homeNotePath(slug: "clawcon-belo-horizonte-2026", locale: locale),
+        image: .bentoPortrait2,
+        alt: "Rychillie at ClawCon Belo Horizonte",
+        variant: .tall,
+        loading: "eager",
+        fetchPriority: "high"
+      ),
+    ],
+  ]
+}
+
+private func homeNotePath(slug: String, locale: String) -> String {
+  "\(Site.localizedNotesPath(for: locale))\(slug)/"
+}
+
+private func homeBentoLink(_ item: HomeBentoItem) -> Node {
+  a(class: Theme.Home.bentoLink, href: item.href) {
+    responsiveImage(
+      item.image,
+      alt: item.alt,
+      class: item.variant.imageClass,
+      loading: item.loading,
+      fetchPriority: item.fetchPriority
+    )
+    div(class: Theme.Home.bentoOverlay) {}
+    div(class: Theme.Home.bentoContent) {
+      span(class: Theme.Home.bentoTitle) { item.title }
+      siteIcon(.arrowUpRight, class: Theme.Home.bentoArrow)
     }
   }
 }

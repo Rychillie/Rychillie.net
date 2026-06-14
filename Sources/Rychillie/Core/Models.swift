@@ -4,6 +4,7 @@ enum NoteType: String, Codable {
   case article
   case talk
   case video
+  case participated
   case other
 
   var label: String {
