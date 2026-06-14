@@ -186,12 +186,18 @@ func siteCard(
   description: String? = nil,
   href: String? = nil,
   leading: CardLeading? = nil,
-  showsArrow: Bool = true
+  showsArrow: Bool = true,
+  opensInNewTab: Bool = false
 ) -> Node {
   let className = !showsArrow && subtitle == nil && description == nil ? Theme.Card.brand : (href == nil ? Theme.Card.staticCard : Theme.Card.linked)
 
   if let href {
-    return a(class: className, href: href) {
+    return a(
+      class: className,
+      href: href,
+      rel: opensInNewTab ? "noopener noreferrer" : nil,
+      target: opensInNewTab ? "_blank" : nil
+    ) {
       siteCardContents(
         title: title,
         subtitle: subtitle,
@@ -264,8 +270,13 @@ func homeText(_ text: String) -> Node {
   p(class: Theme.Home.text) { text }
 }
 
-func inlineActionLink(title: String, href: String) -> Node {
-  a(class: Theme.Card.inlineAction, href: href) {
+func inlineActionLink(title: String, href: String, opensInNewTab: Bool = false) -> Node {
+  a(
+    class: Theme.Card.inlineAction,
+    href: href,
+    rel: opensInNewTab ? "noopener noreferrer" : nil,
+    target: opensInNewTab ? "_blank" : nil
+  ) {
     siteIcon(.arrowUpRight, class: Theme.Card.inlineArrow)
     span { title }
   }

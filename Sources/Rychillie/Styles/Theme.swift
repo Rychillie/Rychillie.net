@@ -46,11 +46,41 @@ enum Theme {
     static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
     static let bento = "grid w-full grid-cols-2 gap-2 md:gap-4"
     static let bentoColumn = "flex min-w-0 flex-col gap-2 md:gap-4"
+    static let bentoLink = [
+      "group relative block w-full overflow-hidden rounded no-underline outline-none ring-[#9d2e29]/0",
+      "focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+      "md:rounded-2xl dark:md:rounded-lg dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
+    ].joined(separator: " ")
+    static let bentoOverlay = [
+      "pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/30 to-neutral-950/0",
+      "opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-visible:opacity-100",
+    ].joined(separator: " ")
+    static let bentoContent = [
+      "pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between gap-3 p-3 text-white",
+      "opacity-0 transition duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100",
+      "group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:p-4",
+    ].joined(separator: " ")
+    static let bentoTitle = "min-w-0 flex-1 text-sm font-bold leading-5 text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] md:text-base md:leading-6"
+    static let bentoArrow = "block size-5 shrink-0 text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] md:size-6"
     static let imageTall = "block w-full aspect-[312/448] rounded object-cover md:rounded-2xl dark:md:rounded-lg"
     static let imageShort = "block w-full aspect-[312/216] rounded object-cover md:rounded-2xl dark:md:rounded-lg"
     static let socialCards = "grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4"
     static let list = "flex w-full flex-col gap-2 md:gap-2.5"
     static let brandGrid = "flex w-full flex-wrap items-center gap-2"
+  }
+
+  enum About {
+    static let header = "flex w-full flex-col items-start gap-4 break-words leading-none tracking-normal"
+    static let pageTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let lead = "m-0 w-full break-words text-base font-semibold leading-6 text-neutral-950 dark:text-neutral-50"
+    static let body = "flex w-full flex-col gap-4"
+    static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+    static let career = "flex w-full flex-col items-start gap-3 pt-2"
+    static let careerTitle = "m-0 w-full text-base font-bold leading-6 text-neutral-950 dark:text-neutral-50"
+    static let careerList = "m-0 flex w-full list-none flex-col gap-2 p-0"
+    static let careerItem = "flex w-full items-start gap-2 break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+    static let careerBullet = "mt-[0.6875rem] size-1.5 shrink-0 rounded-full bg-[#9d2e29] dark:bg-[#e05e58]"
+    static let careerItemText = "min-w-0 flex-1"
   }
 
   enum Notes {

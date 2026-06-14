@@ -81,7 +81,6 @@ try await Saga(input: "content", output: "deploy")
   .createPage("notes/index.html", forEachLocale: swim(renderNotes))
   .createPage("about/index.html", forEachLocale: swim(renderAbout))
   .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
-  .createPage("articles/hello-world/index.html", using: Saga.redirectHTML(to: "\(Site.notesPath)hello-world/"))
   .createPage("llms.txt", using: LLMS.renderIndex)
   .createPage("llms-full.txt", using: LLMS.renderFull)
   .createPage(
