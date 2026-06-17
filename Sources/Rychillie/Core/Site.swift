@@ -129,18 +129,26 @@ struct SiteCopy {
     notesDescription: "Writing, talks, experiments, and technical notes.",
     noNotes: "No notes published yet.",
     aboutTitle: "About",
-    aboutLead: "I am a Brazilian developer passionate about creating interfaces, products, and digital experiences that are useful, well-designed, and enjoyable to use.",
+    aboutLead: "I am a Brazilian developer passionate about solving problems through technology, games, and design, focused on building products and digital experiences that make a difference in people's lives.",
     aboutParagraphs: [
-      "My journey across Web, Mobile, and iOS development has always been guided by the same idea: good software is not only software that works. It respects people's time, reduces friction, and makes a task simpler, clearer, or more enjoyable.",
-      "Over the past few years, I have also dedicated part of my time to strengthening the developer community in Brazil. I share what I learn about UI, Frontend, Mobile/iOS, product, and artificial intelligence through videos, essays, talks, events, and conversations with other people building on the internet.",
-      "Technology and design are, to me, tools for impact. I want to create better applications over time and, more than being remembered for the work itself, I want to be remembered for how what I built helped people learn, create, or live better.",
+      "My journey started by building products with TypeScript, PHP, C#, and React Native, but today my work " +
+        "is much more connected to the Apple ecosystem. I have a strong specialty in Swift, Vapor, and the " +
+        "technologies, products, and services that shape that ecosystem, always guided by the same idea: " +
+        "good software is not only software that works. It respects people's time, reduces friction, and " +
+        "makes a task simpler, clearer, or more enjoyable.",
+      "Over the past few years, I have also dedicated part of my time to strengthening the developer " +
+        "community in Brazil. I share what I learn about interface development with a focus on user " +
+        "experience (UX), product, artificial intelligence, Swift, and Vapor through videos, articles, talks, " +
+        "events, and conversations with other people building on the internet.",
+      "Technology, design, and games are, to me, tools for impact and creativity. Games were one of the reasons I wanted to learn programming, and the way they combine systems, narrative, interaction, and emotion still influences how I think about products and digital experiences.",
     ],
     aboutCareerTitle: "Career",
     aboutCareerItems: [
       "10+ years of professional software development experience.",
-      "Specialized in Frontend, interfaces, user experience, and mobile/iOS development.",
-      "Experience building and leading projects across startups, communities, and product environments.",
-      "Active in the Brazilian technology community, sharing knowledge and practical experience.",
+      "Specialized in Swift, Vapor, and the Apple ecosystem.",
+      "Experience with Apple products, services, and technologies.",
+      "Previous product experience with TypeScript, PHP, C#, and React Native.",
+      "Active in the Brazilian technology community through videos, articles, talks, and events.",
     ],
     copyLinkAction: "Copy Link",
     copyMarkdownAction: "Markdown",
@@ -172,18 +180,26 @@ struct SiteCopy {
     notesDescription: "Textos, talks, experimentos e notas técnicas.",
     noNotes: "Nenhuma nota publicada ainda.",
     aboutTitle: "Sobre",
-    aboutLead: "Sou um desenvolvedor brasileiro apaixonado por criar interfaces, produtos e experiências digitais que sejam úteis, bem desenhadas e agradáveis de usar.",
+    aboutLead: "Sou um desenvolvedor brasileiro apaixonado por resolver problemas com tecnologia, games e design, com foco em criar produtos e experiências digitais que façam diferença na vida das pessoas.",
     aboutParagraphs: [
-      "Minha trajetória em Web, Mobile e iOS sempre foi guiada pela mesma ideia: software bom não é só o que funciona. É o que respeita o tempo das pessoas, reduz atrito e torna uma tarefa mais simples, clara ou prazerosa.",
-      "Nos últimos anos, também tenho dedicado parte do meu tempo a fortalecer a comunidade de desenvolvimento no Brasil. Compartilho o que aprendo sobre UI, Frontend, Mobile/iOS, produto e inteligência artificial por meio de vídeos, textos, talks, eventos e conversas com outras pessoas que também estão construindo na internet.",
-      "Tecnologia e design são, para mim, ferramentas de impacto. Quero criar aplicações cada vez melhores e, mais do que ser lembrado pelo trabalho em si, ser lembrado pela forma como aquilo que construí ajudou pessoas a aprender, criar ou viver melhor.",
+      "Minha trajetória começou criando produtos com TypeScript, PHP, C# e React Native, mas hoje meu " +
+        "trabalho está muito mais conectado ao ecossistema Apple. Tenho uma especialidade forte em Swift, " +
+        "Vapor e nas tecnologias, produtos e serviços que formam esse ecossistema, sempre com a mesma ideia: " +
+        "software bom não é só o que funciona. É o que respeita o tempo das pessoas, reduz atrito e torna " +
+        "uma tarefa mais simples, clara ou prazerosa.",
+      "Nos últimos anos, também tenho dedicado parte do meu tempo a fortalecer a comunidade de desenvolvimento " +
+        "no Brasil. Compartilho o que aprendo sobre desenvolvimento de interfaces com foco em experiência " +
+        "do usuário (UX), produto, inteligência artificial, Swift e Vapor por meio de vídeos, artigos, talks, " +
+        "eventos e conversas com outras pessoas que também estão construindo na internet.",
+      "Tecnologia, design e games são, para mim, ferramentas de impacto e criatividade. Jogos foram uma das razões que me fizeram querer aprender programação, e ainda hoje a forma como eles combinam sistemas, narrativa, interação e emoção influencia a maneira como penso produtos e experiências digitais.",
     ],
     aboutCareerTitle: "Carreira",
     aboutCareerItems: [
       "10+ anos de experiência profissional em desenvolvimento de software.",
-      "Especialidade em Frontend, interfaces, experiência do usuário e desenvolvimento mobile/iOS.",
-      "Experiência construindo e liderando projetos em startups, comunidades e ambientes de produto.",
-      "Atuação constante na comunidade brasileira de tecnologia, compartilhando conhecimento e experiências.",
+      "Especialidade em Swift, Vapor e ecossistema Apple.",
+      "Experiência com produtos, serviços e tecnologias Apple.",
+      "Repertório anterior construindo produtos com TypeScript, PHP, C# e React Native.",
+      "Atuação na comunidade brasileira de tecnologia por meio de vídeos, artigos, talks e eventos.",
     ],
     copyLinkAction: "Copiar link",
     copyMarkdownAction: "Markdown",
