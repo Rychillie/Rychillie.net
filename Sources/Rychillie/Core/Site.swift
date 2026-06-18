@@ -88,8 +88,33 @@ struct SiteCopy {
   let aboutTitle: String
   let aboutLead: String
   let aboutParagraphs: [String]
+  let aboutGamesTitle: String
+  let aboutGamesDescription: String
   let aboutCareerTitle: String
   let aboutCareerItems: [String]
+  let gameOpenDetailsAction: String
+  let gameCloseAction: String
+  let gameReviewAction: String
+  let gameGalleryTitle: String
+  let gameSystemLabel: String
+  let gamePlayableOnLabel: String
+  let gameLibraryLabel: String
+  let gameFormatLabel: String
+  let gameEditionLabel: String
+  let gameStartedLabel: String
+  let gameFinishedLabel: String
+  let gamePlaytimeLabel: String
+  let gameStatusPlaying: String
+  let gameStatusCompleted: String
+  let gameStatusBacklog: String
+  let gameStatusWishlist: String
+  let gameCollectionOwned: String
+  let gameCollectionPsnPlus: String
+  let gameCollectionSteam: String
+  let gameCollectionWishlist: String
+  let gameFormatDigital: String
+  let gameFormatPhysical: String
+  let gameFormatUnknown: String
   let copyLinkAction: String
   let copyMarkdownAction: String
   let copiedAction: String
@@ -106,6 +131,32 @@ struct SiteCopy {
     case .video: videoLabel
     case .participated: participatedLabel
     case .other: otherLabel
+    }
+  }
+
+  func label(for gameStatus: GameStatus) -> String {
+    switch gameStatus {
+    case .playing: gameStatusPlaying
+    case .completed: gameStatusCompleted
+    case .backlog: gameStatusBacklog
+    case .wishlist: gameStatusWishlist
+    }
+  }
+
+  func label(for gameCollection: GameCollection) -> String {
+    switch gameCollection {
+    case .owned: gameCollectionOwned
+    case .psnPlus: gameCollectionPsnPlus
+    case .steam: gameCollectionSteam
+    case .wishlist: gameCollectionWishlist
+    }
+  }
+
+  func label(for gameFormat: GameFormat) -> String {
+    switch gameFormat {
+    case .digital: gameFormatDigital
+    case .physical: gameFormatPhysical
+    case .unknown: gameFormatUnknown
     }
   }
 
@@ -142,6 +193,8 @@ struct SiteCopy {
         "events, and conversations with other people building on the internet.",
       "Technology, design, and games are, to me, tools for impact and creativity. Games were one of the reasons I wanted to learn programming, and the way they combine systems, narrative, interaction, and emotion still influences how I think about products and digital experiences.",
     ],
+    aboutGamesTitle: "Games",
+    aboutGamesDescription: "A small shelf of what I am playing, what I have finished, and what is still waiting for the right moment.",
     aboutCareerTitle: "Career",
     aboutCareerItems: [
       "10+ years of professional software development experience.",
@@ -150,6 +203,29 @@ struct SiteCopy {
       "Previous product experience with TypeScript, PHP, C#, and React Native.",
       "Active in the Brazilian technology community through videos, articles, talks, and events.",
     ],
+    gameOpenDetailsAction: "Open game details",
+    gameCloseAction: "Close",
+    gameReviewAction: "Read analysis",
+    gameGalleryTitle: "Gallery",
+    gameSystemLabel: "System",
+    gamePlayableOnLabel: "Playable on",
+    gameLibraryLabel: "Library",
+    gameFormatLabel: "Format",
+    gameEditionLabel: "Edition",
+    gameStartedLabel: "Started",
+    gameFinishedLabel: "Finished",
+    gamePlaytimeLabel: "Playtime",
+    gameStatusPlaying: "Playing",
+    gameStatusCompleted: "Completed",
+    gameStatusBacklog: "Backlog",
+    gameStatusWishlist: "Wishlist",
+    gameCollectionOwned: "Owned",
+    gameCollectionPsnPlus: "PSN Plus",
+    gameCollectionSteam: "Steam",
+    gameCollectionWishlist: "Wishlist",
+    gameFormatDigital: "Digital",
+    gameFormatPhysical: "Physical",
+    gameFormatUnknown: "Unknown",
     copyLinkAction: "Copy Link",
     copyMarkdownAction: "Markdown",
     copiedAction: "Copied",
@@ -193,6 +269,8 @@ struct SiteCopy {
         "eventos e conversas com outras pessoas que também estão construindo na internet.",
       "Tecnologia, design e games são, para mim, ferramentas de impacto e criatividade. Jogos foram uma das razões que me fizeram querer aprender programação, e ainda hoje a forma como eles combinam sistemas, narrativa, interação e emoção influencia a maneira como penso produtos e experiências digitais.",
     ],
+    aboutGamesTitle: "Games",
+    aboutGamesDescription: "Uma pequena estante com o que estou jogando, o que já zerei e o que ainda está esperando o momento certo.",
     aboutCareerTitle: "Carreira",
     aboutCareerItems: [
       "10+ anos de experiência profissional em desenvolvimento de software.",
@@ -201,6 +279,29 @@ struct SiteCopy {
       "Repertório anterior construindo produtos com TypeScript, PHP, C# e React Native.",
       "Atuação na comunidade brasileira de tecnologia por meio de vídeos, artigos, talks e eventos.",
     ],
+    gameOpenDetailsAction: "Abrir detalhes do jogo",
+    gameCloseAction: "Fechar",
+    gameReviewAction: "Ler análise",
+    gameGalleryTitle: "Galeria",
+    gameSystemLabel: "Plataforma",
+    gamePlayableOnLabel: "Jogável em",
+    gameLibraryLabel: "Biblioteca",
+    gameFormatLabel: "Formato",
+    gameEditionLabel: "Edição",
+    gameStartedLabel: "Iniciado",
+    gameFinishedLabel: "Finalizado",
+    gamePlaytimeLabel: "Tempo jogado",
+    gameStatusPlaying: "Jogando",
+    gameStatusCompleted: "Zerado",
+    gameStatusBacklog: "Backlog",
+    gameStatusWishlist: "Wishlist",
+    gameCollectionOwned: "Comprado",
+    gameCollectionPsnPlus: "PSN Plus",
+    gameCollectionSteam: "Steam",
+    gameCollectionWishlist: "Wishlist",
+    gameFormatDigital: "Digital",
+    gameFormatPhysical: "Físico",
+    gameFormatUnknown: "Desconhecido",
     copyLinkAction: "Copiar link",
     copyMarkdownAction: "Markdown",
     copiedAction: "Copiado",
