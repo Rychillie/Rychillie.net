@@ -140,7 +140,7 @@ private func aboutGameDialog(game: Item<GameMetadata>, copy: SiteCopy, locale: S
             "data-game-close": "",
           ]
         ) {
-          copy.gameCloseAction
+          siteIcon(.close, class: Theme.About.gameCloseIcon)
         }
       }
 
@@ -187,15 +187,101 @@ private func aboutGameMeta(label: String, value: String?) -> NodeConvertible {
 @NodeBuilder
 private func aboutGameGallery(game: Item<GameMetadata>, copy: SiteCopy) -> NodeConvertible {
   if let gallery = game.metadata.gallery, !gallery.isEmpty {
-    div(class: Theme.About.gameGallery) {
-      h4(class: Theme.About.gameGalleryTitle) { copy.gameGalleryTitle }
-      div(class: Theme.About.gameGalleryGrid) {
-        gallery.map { image in
-          assetImage(image, alt: game.title, class: Theme.About.gameGalleryImage, loading: "lazy")
+    div(class: Theme.About.gameGallery, customAttributes: ["data-game-gallery": ""]) {
+      div(class: Theme.About.gameGalleryHeader) {
+        h4(class: Theme.About.gameGalleryTitle) { copy.gameGalleryTitle }
+        span(
+          class: Theme.About.gameGalleryCounter,
+          customAttributes: ["data-game-gallery-counter": ""]
+        ) {
+          "1 / \(gallery.count)"
+        }
+      }
+
+      div(class: Theme.About.gameGalleryCarousel) {
+        div(class: Theme.About.gameGalleryStage) {
+          img(
+            alt: game.title,
+            class: Theme.About.gameGalleryImage,
+            decoding: "async",
+            loading: "lazy",
+            src: imageAsset(gallery[0]),
+            customAttributes: ["data-game-gallery-image": ""]
+          )
+
+          if gallery.count > 1 {
+            button(
+              class: "\(Theme.About.gameGalleryNavButton) \(Theme.About.gameGalleryPreviousButton)",
+              type: "button",
+              customAttributes: [
+                "aria-label": copy.gameGalleryPreviousAction,
+                "data-game-gallery-prev": "",
+              ]
+            ) {
+              span(class: Theme.About.gameGalleryButtonGlyph, customAttributes: ["aria-hidden": "true"]) { "<" }
+            }
+
+            button(
+              class: "\(Theme.About.gameGalleryNavButton) \(Theme.About.gameGalleryNextButton)",
+              type: "button",
+              customAttributes: [
+                "aria-label": copy.gameGalleryNextAction,
+                "data-game-gallery-next": "",
+              ]
+            ) {
+              span(class: Theme.About.gameGalleryButtonGlyph, customAttributes: ["aria-hidden": "true"]) { ">" }
+            }
+          }
+        }
+
+        if gallery.count > 1 {
+          div(class: Theme.About.gameGalleryThumbs) {
+            gallery.enumerated().map { index, image in
+              button(
+                class: Theme.About.gameGalleryThumb,
+                type: "button",
+                customAttributes: gameGalleryThumbAttributes(
+                  image: image,
+                  index: index,
+                  title: game.title,
+                  copy: copy
+                )
+              ) {
+                img(
+                  alt: "",
+                  class: Theme.About.gameGalleryThumbImage,
+                  decoding: "async",
+                  loading: "lazy",
+                  src: imageAsset(image)
+                )
+              }
+            }
+          }
         }
       }
     }
   }
+}
+
+private func gameGalleryThumbAttributes(
+  image: String,
+  index: Int,
+  title: String,
+  copy: SiteCopy
+) -> [String: String] {
+  var attributes = [
+    "aria-label": "\(copy.gameGallerySelectAction) \(index + 1): \(title)",
+    "data-game-gallery-src": imageAsset(image),
+    "data-game-gallery-thumb": "",
+    "data-game-gallery-index": "\(index)",
+  ]
+
+  if index == 0 {
+    attributes["aria-current"] = "true"
+    attributes["data-active"] = "true"
+  }
+
+  return attributes
 }
 
 private func aboutGameModalID(for game: Item<GameMetadata>) -> String {
@@ -220,55 +306,5 @@ private func nonEmpty(_ value: String?) -> String? {
 }
 
 private func aboutGamesScript() -> Node {
-  script {
-    Node.raw("""
-    (function () {
-      var lastTrigger = new WeakMap();
-
-      function closeDialog(dialog) {
-        if (dialog && dialog.open) {
-          dialog.close();
-        }
-      }
-
-      document.querySelectorAll("[data-game-modal]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          var id = button.getAttribute("data-game-modal");
-          var dialog = id ? document.getElementById(id) : null;
-          if (!dialog) {
-            return;
-          }
-
-          lastTrigger.set(dialog, button);
-          if (typeof dialog.showModal === "function") {
-            dialog.showModal();
-          } else {
-            dialog.setAttribute("open", "");
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-game-dialog]").forEach(function (dialog) {
-        dialog.querySelectorAll("[data-game-close]").forEach(function (button) {
-          button.addEventListener("click", function () {
-            closeDialog(dialog);
-          });
-        });
-
-        dialog.addEventListener("click", function (event) {
-          if (event.target === dialog) {
-            closeDialog(dialog);
-          }
-        });
-
-        dialog.addEventListener("close", function () {
-          var trigger = lastTrigger.get(dialog);
-          if (trigger) {
-            trigger.focus();
-          }
-        });
-      });
-    })();
-    """)
-  }
+  script(defer: true, src: Saga.hashed("/static/scripts/about-games.js"))
 }

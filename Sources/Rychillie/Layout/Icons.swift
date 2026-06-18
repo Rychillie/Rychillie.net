@@ -5,13 +5,14 @@ enum SiteIcon {
   case anthropic
   case apple
   case arrowUpRight
+  case close
   case discord
   case openAI
   case youtube
 
   var viewBox: String {
     switch self {
-    case .anthropic, .arrowUpRight:
+    case .anthropic, .arrowUpRight, .close:
       "0 0 24 24"
     case .apple:
       "0 0 19.5938 24"
@@ -47,6 +48,16 @@ enum SiteIcon {
     case .arrowUpRight:
       svgPath(
         "M17 17V7H7M17 7L7 17",
+        attributes: [
+          "stroke": "currentColor",
+          "stroke-linecap": "round",
+          "stroke-linejoin": "round",
+          "stroke-width": "2",
+        ]
+      )
+    case .close:
+      svgPath(
+        "M18 6L6 18M6 6L18 18",
         attributes: [
           "stroke": "currentColor",
           "stroke-linecap": "round",
