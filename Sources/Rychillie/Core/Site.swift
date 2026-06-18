@@ -96,6 +96,9 @@ struct SiteCopy {
   let gameCloseAction: String
   let gameReviewAction: String
   let gameGalleryTitle: String
+  let gameGalleryPreviousAction: String
+  let gameGalleryNextAction: String
+  let gameGallerySelectAction: String
   let gameSystemLabel: String
   let gamePlayableOnLabel: String
   let gameLibraryLabel: String
@@ -207,6 +210,9 @@ struct SiteCopy {
     gameCloseAction: "Close",
     gameReviewAction: "Read analysis",
     gameGalleryTitle: "Gallery",
+    gameGalleryPreviousAction: "Previous image",
+    gameGalleryNextAction: "Next image",
+    gameGallerySelectAction: "Show image",
     gameSystemLabel: "System",
     gamePlayableOnLabel: "Playable on",
     gameLibraryLabel: "Library",
@@ -283,6 +289,9 @@ struct SiteCopy {
     gameCloseAction: "Fechar",
     gameReviewAction: "Ler análise",
     gameGalleryTitle: "Galeria",
+    gameGalleryPreviousAction: "Imagem anterior",
+    gameGalleryNextAction: "Próxima imagem",
+    gameGallerySelectAction: "Mostrar imagem",
     gameSystemLabel: "Plataforma",
     gamePlayableOnLabel: "Jogável em",
     gameLibraryLabel: "Biblioteca",
