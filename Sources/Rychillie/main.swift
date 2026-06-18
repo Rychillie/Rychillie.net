@@ -77,6 +77,12 @@ try await Saga(input: "content", output: "deploy")
       .itemWriter(swim(renderNote)),
     ]
   )
+  .register(
+    folder: "games",
+    metadata: GameMetadata.self,
+    readers: [.parsleyMarkdownReader],
+    writers: []
+  )
   .createPage("index.html", forEachLocale: swim(renderHome))
   .createPage("notes/index.html", forEachLocale: swim(renderNotes))
   .createPage("about/index.html", forEachLocale: swim(renderAbout))
