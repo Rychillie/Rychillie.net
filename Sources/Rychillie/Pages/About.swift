@@ -87,9 +87,5 @@ private func aboutGameButton(game: Item<GameMetadata>, copy: SiteCopy, locale: S
     ]
   ) {
     gameCover(game, class: Theme.Game.cover)
-    span(
-      class: "\(Theme.Game.statusMarker) \(gameStatusClass(game.metadata.status))",
-      customAttributes: ["aria-hidden": "true"]
-    ) {}
   }
 }

@@ -147,15 +147,16 @@ enum Theme {
     static let gamesTitle = "m-0 w-full text-base font-bold leading-6 text-neutral-950 dark:text-neutral-50"
     static let gamesViewAllLink = "shrink-0 text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
     static let gamesDescription = "m-0 w-full break-words text-sm font-normal leading-5 text-neutral-800 dark:text-neutral-200"
-    static let gamesShelf = "flex w-full items-center overflow-visible py-3"
+    static let gamesShelf = "grid w-full grid-cols-4 gap-2 py-3 sm:grid-cols-6 md:flex md:items-center md:gap-0 md:overflow-visible"
     static let gameShelfButton = [
-      "group relative -ml-6 aspect-[2/3] w-12 shrink-0 overflow-hidden rounded border border-neutral-200",
-      "bg-neutral-50 p-0 shadow-sm transition duration-200 ease-out first:ml-0 hover:z-20",
-      "hover:-translate-y-2 hover:scale-110 hover:border-neutral-300 hover:bg-white hover:shadow-xl",
-      "focus-visible:z-20 focus-visible:-translate-y-2 focus-visible:scale-110 focus-visible:outline-none",
-      "focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
-      "focus-visible:ring-offset-white sm:-ml-7 sm:w-14 md:-ml-8 md:w-20 dark:rounded-lg dark:border-neutral-800",
-      "dark:bg-neutral-950 dark:hover:border-neutral-700 dark:focus-visible:ring-[#e05e58]/80",
+      "group relative aspect-[2/3] w-full cursor-pointer overflow-hidden rounded-[3px] border border-neutral-200",
+      "bg-neutral-50 p-0 shadow-sm transition duration-200 ease-out first:ml-0",
+      "focus-visible:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70",
+      "focus-visible:ring-offset-2 focus-visible:ring-offset-white md:-ml-[29px] md:w-20 md:shrink-0",
+      "md:hover:z-20 md:hover:-translate-y-2 md:hover:scale-110 md:hover:border-neutral-300",
+      "md:hover:bg-white md:hover:shadow-xl md:focus-visible:-translate-y-2 md:focus-visible:scale-110",
+      "dark:border-neutral-800 dark:bg-neutral-950 dark:md:hover:border-neutral-700",
+      "dark:focus-visible:ring-[#e05e58]/80",
       "dark:focus-visible:ring-offset-neutral-950",
     ].joined(separator: " ")
     static let career = "flex w-full flex-col items-start gap-3 pt-2"
@@ -199,20 +200,16 @@ enum Theme {
       "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
       "dark:data-[active=true]:border-[#e05e58] dark:data-[active=true]:bg-[#e05e58] dark:data-[active=true]:text-neutral-950",
     ].joined(separator: " ")
-    static let grid = "grid w-full grid-cols-2 gap-3 md:grid-cols-3 md:gap-4"
+    static let grid = "grid w-full grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-5 md:gap-3"
     static let card = [
-      "group flex min-w-0 flex-col gap-2 rounded border border-neutral-200 bg-neutral-50 p-2 text-left",
-      "transition duration-200 ease-out hover:-translate-y-0.5 hover:border-neutral-300 hover:bg-white",
+      "group relative aspect-[2/3] min-w-0 cursor-pointer overflow-hidden rounded-[3px] border border-neutral-200",
+      "bg-neutral-100 p-0 text-left transition duration-200 ease-out hover:-translate-y-0.5",
+      "hover:border-neutral-300",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
-      "focus-visible:ring-offset-white disabled:opacity-40 dark:rounded-lg dark:border-neutral-800",
-      "dark:bg-neutral-950 dark:hover:border-neutral-700 dark:hover:bg-neutral-900/50",
+      "focus-visible:ring-offset-white disabled:opacity-40 dark:border-neutral-800 dark:bg-neutral-900",
+      "dark:hover:border-neutral-700",
       "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
     ].joined(separator: " ")
-    static let cardCoverFrame = "relative aspect-[2/3] w-full overflow-hidden rounded border border-neutral-200 bg-neutral-100 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-900"
-    static let cardContent = "flex min-w-0 flex-col gap-1 px-0.5 pb-1"
-    static let cardTitle = "m-0 break-words text-sm font-bold leading-5 text-neutral-950 dark:text-neutral-50"
-    static let cardMeta = "m-0 flex flex-wrap items-center gap-1 text-xs font-normal leading-4 text-neutral-600 dark:text-neutral-400"
-    static let cardMetaDot = "size-0.5 rounded-full bg-neutral-500 dark:bg-neutral-500"
   }
 
   enum Markdown {

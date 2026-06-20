@@ -25,7 +25,7 @@ func renderGames(context: PageRenderingContext) -> Node {
 
         div(class: Theme.Games.grid) {
           games.map { game in
-            gamesCard(game: game, copy: copy, locale: locale)
+            gamesCard(game: game, copy: copy)
           }
         }
 
@@ -74,7 +74,7 @@ private func gamesFilterButton(label: String, value: String, isActive: Bool = fa
   }
 }
 
-private func gamesCard(game: Item<GameMetadata>, copy: SiteCopy, locale: String) -> Node {
+private func gamesCard(game: Item<GameMetadata>, copy: SiteCopy) -> Node {
   let modalID = gameModalID(for: game)
 
   return button(
@@ -87,21 +87,6 @@ private func gamesCard(game: Item<GameMetadata>, copy: SiteCopy, locale: String)
       "data-game-status": game.metadata.status.rawValue,
     ]
   ) {
-    div(class: Theme.Games.cardCoverFrame) {
-      gameCover(game, class: Theme.Game.cover)
-      span(
-        class: "\(Theme.Game.statusMarker) \(gameStatusClass(game.metadata.status))",
-        customAttributes: ["aria-hidden": "true"]
-      ) {}
-    }
-
-    div(class: Theme.Games.cardContent) {
-      h2(class: Theme.Games.cardTitle) { game.title }
-      p(class: Theme.Games.cardMeta) {
-        span { game.metadata.status.label(locale: locale) }
-        span(class: Theme.Games.cardMetaDot, customAttributes: ["aria-hidden": "true"]) {}
-        span { game.metadata.system }
-      }
-    }
+    gameCover(game, class: Theme.Game.cover)
   }
 }
