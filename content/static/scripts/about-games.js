@@ -193,6 +193,41 @@
     setGalleryIndex(gallery, currentGalleryIndex(gallery));
   }
 
+  function setupFilterGroup(group) {
+    var buttons = Array.prototype.slice.call(group.querySelectorAll("[data-game-filter]"));
+    var items = Array.prototype.slice.call(document.querySelectorAll("[data-game-item]"));
+
+    if (buttons.length === 0 || items.length === 0) {
+      return;
+    }
+
+    function applyFilter(filter) {
+      buttons.forEach(function (button) {
+        var isActive = button.getAttribute("data-game-filter") === filter;
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+
+        if (isActive) {
+          button.setAttribute("data-active", "true");
+        } else {
+          button.removeAttribute("data-active");
+        }
+      });
+
+      items.forEach(function (item) {
+        var status = item.getAttribute("data-game-status");
+        item.hidden = filter !== "all" && status !== filter;
+      });
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyFilter(button.getAttribute("data-game-filter") || "all");
+      });
+    });
+
+    applyFilter("all");
+  }
+
   document.querySelectorAll("[data-game-modal]").forEach(function (button) {
     button.addEventListener("click", function () {
       var id = button.getAttribute("data-game-modal");
@@ -228,4 +263,5 @@
   });
 
   document.querySelectorAll("[data-game-gallery]").forEach(setupGallery);
+  document.querySelectorAll("[data-game-filter-group]").forEach(setupFilterGroup);
 })();

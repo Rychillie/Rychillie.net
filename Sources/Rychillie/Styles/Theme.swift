@@ -69,46 +69,28 @@ enum Theme {
     static let brandGrid = "flex w-full flex-wrap items-center gap-2"
   }
 
-  enum About {
-    static let header = "flex w-full flex-col items-start gap-4 break-words leading-none tracking-normal"
-    static let pageTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
-    static let lead = "m-0 w-full break-words text-base font-semibold leading-6 text-neutral-950 dark:text-neutral-50"
-    static let body = "flex w-full flex-col gap-4"
-    static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
-    static let games = "flex w-full flex-col items-start gap-3 pt-2"
-    static let gamesHeader = "flex w-full flex-col gap-1"
-    static let gamesTitle = "m-0 w-full text-base font-bold leading-6 text-neutral-950 dark:text-neutral-50"
-    static let gamesDescription = "m-0 w-full break-words text-sm font-normal leading-5 text-neutral-800 dark:text-neutral-200"
-    static let gamesGrid = "grid w-full grid-cols-4 gap-2 md:grid-cols-6 md:gap-3"
-    static let gameButton = [
-      "group relative aspect-[2/3] w-full overflow-hidden rounded border border-neutral-200 bg-neutral-50 p-0",
-      "transition duration-200 ease-out hover:-translate-y-0.5 hover:border-neutral-300 hover:bg-white",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70",
-      "focus-visible:ring-offset-2 focus-visible:ring-offset-white",
-      "dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-neutral-700",
-      "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
-    ].joined(separator: " ")
-    static let gameCover = "block size-full object-cover"
-    static let gamePlaceholder = "flex size-full flex-col justify-end gap-1 bg-neutral-100 p-3 dark:bg-neutral-900"
-    static let gamePlaceholderLinePrimary = "block h-1.5 w-10 rounded-full bg-neutral-300 dark:bg-neutral-700"
-    static let gamePlaceholderLineSecondary = "block h-1.5 w-6 rounded-full bg-neutral-200 dark:bg-neutral-800"
-    static let gameStatusMarker = "absolute bottom-2 right-2 size-2 rounded-full ring-2 ring-white dark:ring-neutral-950"
-    static let gameStatusPlaying = "bg-[#9d2e29] dark:bg-[#e05e58]"
-    static let gameStatusCompleted = "bg-neutral-950 dark:bg-neutral-50"
-    static let gameStatusBacklog = "bg-neutral-500 dark:bg-neutral-400"
-    static let gameStatusWishlist = "bg-neutral-300 dark:bg-neutral-700"
-    static let gameDialog = [
+  enum Game {
+    static let cover = "block size-full object-cover"
+    static let placeholder = "flex size-full flex-col justify-end gap-1 bg-neutral-100 p-3 dark:bg-neutral-900"
+    static let placeholderLinePrimary = "block h-1.5 w-10 rounded-full bg-neutral-300 dark:bg-neutral-700"
+    static let placeholderLineSecondary = "block h-1.5 w-6 rounded-full bg-neutral-200 dark:bg-neutral-800"
+    static let statusMarker = "absolute bottom-2 right-2 size-2 rounded-full ring-2 ring-white dark:ring-neutral-950"
+    static let statusPlaying = "bg-[#9d2e29] dark:bg-[#e05e58]"
+    static let statusCompleted = "bg-neutral-950 dark:bg-neutral-50"
+    static let statusBacklog = "bg-neutral-500 dark:bg-neutral-400"
+    static let statusWishlist = "bg-neutral-300 dark:bg-neutral-700"
+    static let dialog = [
       "m-auto max-h-[min(90vh,820px)] w-[calc(100vw-2rem)] max-w-[760px] overflow-hidden rounded",
       "border border-neutral-200 bg-white p-0 text-neutral-950 shadow-2xl backdrop:bg-neutral-950/65",
       "dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50",
       "dark:backdrop:bg-neutral-950/80",
     ].joined(separator: " ")
-    static let gameDialogPanel = "flex max-h-[min(90vh,820px)] flex-col"
-    static let gameDialogHeader = "flex items-start justify-between gap-4 border-b border-neutral-200 p-4 dark:border-neutral-800 md:p-5"
-    static let gameDialogTitleGroup = "flex min-w-0 flex-col gap-1"
-    static let gameDialogTitle = "m-0 break-words text-lg font-bold leading-7 text-neutral-950 dark:text-neutral-50"
-    static let gameDialogStatus = "m-0 text-sm font-semibold leading-5 text-[#9d2e29] dark:text-[#e05e58]"
-    static let gameCloseButton = [
+    static let dialogPanel = "flex max-h-[min(90vh,820px)] flex-col"
+    static let dialogHeader = "flex items-start justify-between gap-4 border-b border-neutral-200 p-4 dark:border-neutral-800 md:p-5"
+    static let dialogTitleGroup = "flex min-w-0 flex-col gap-1"
+    static let dialogTitle = "m-0 break-words text-lg font-bold leading-7 text-neutral-950 dark:text-neutral-50"
+    static let dialogStatus = "m-0 text-sm font-semibold leading-5 text-[#9d2e29] dark:text-[#e05e58]"
+    static let closeButton = [
       "flex size-11 shrink-0 appearance-none items-center justify-center rounded border border-neutral-200",
       "bg-neutral-50 p-0 text-neutral-800 transition-colors hover:border-neutral-300 hover:bg-white hover:text-neutral-950",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
@@ -116,31 +98,31 @@ enum Theme {
       "dark:hover:border-neutral-700 dark:hover:text-neutral-50 dark:focus-visible:ring-[#e05e58]/80",
       "dark:focus-visible:ring-offset-neutral-950",
     ].joined(separator: " ")
-    static let gameCloseIcon = "block size-5"
-    static let gameDialogBody = "max-h-[calc(min(90vh,820px)-5rem)] overflow-y-auto p-4 md:p-5"
-    static let gameMetaList = "mb-4 grid grid-cols-1 gap-x-4 md:grid-cols-2"
-    static let gameMetaItem = "min-w-0 border-t border-neutral-200 py-2 dark:border-neutral-800"
-    static let gameMetaLabel = "m-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
-    static let gameMetaValue = "m-0 break-words text-sm font-normal leading-5 text-neutral-900 dark:text-neutral-100"
-    static let gameMarkdown = "mt-1"
-    static let gameGallery = "mt-5 flex flex-col gap-3"
-    static let gameGalleryCarousel = "flex flex-col gap-3"
-    static let gameGalleryHeader = "flex items-center justify-between gap-3"
-    static let gameGalleryTitle = "m-0 text-sm font-bold leading-5 text-neutral-950 dark:text-neutral-50"
-    static let gameGalleryCounter = "shrink-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
-    static let gameGalleryStage = "relative overflow-hidden rounded border border-neutral-200 bg-neutral-100 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-900"
-    static let gameGalleryImage = "block aspect-video w-full object-cover"
-    static let gameGalleryNavButton = [
+    static let closeIcon = "block size-5"
+    static let dialogBody = "max-h-[calc(min(90vh,820px)-5rem)] overflow-y-auto p-4 md:p-5"
+    static let metaList = "mb-4 grid grid-cols-1 gap-x-4 md:grid-cols-2"
+    static let metaItem = "min-w-0 border-t border-neutral-200 py-2 dark:border-neutral-800"
+    static let metaLabel = "m-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
+    static let metaValue = "m-0 break-words text-sm font-normal leading-5 text-neutral-900 dark:text-neutral-100"
+    static let markdown = "mt-1"
+    static let gallery = "mt-5 flex flex-col gap-3"
+    static let galleryCarousel = "flex flex-col gap-3"
+    static let galleryHeader = "flex items-center justify-between gap-3"
+    static let galleryTitle = "m-0 text-sm font-bold leading-5 text-neutral-950 dark:text-neutral-50"
+    static let galleryCounter = "shrink-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
+    static let galleryStage = "relative overflow-hidden rounded border border-neutral-200 bg-neutral-100 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-900"
+    static let galleryImage = "block aspect-video w-full object-cover"
+    static let galleryNavButton = [
       "absolute top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full",
       "border border-white/35 bg-neutral-950/70 p-0 text-xl font-bold leading-none text-white",
       "shadow-lg transition-colors hover:bg-neutral-950/85 focus-visible:outline-none",
       "focus-visible:ring-2 focus-visible:ring-white/90",
     ].joined(separator: " ")
-    static let gameGalleryPreviousButton = "left-2"
-    static let gameGalleryNextButton = "right-2"
-    static let gameGalleryButtonGlyph = "block -translate-y-px"
-    static let gameGalleryThumbs = "grid grid-cols-3 gap-2 md:grid-cols-5"
-    static let gameGalleryThumb = [
+    static let galleryPreviousButton = "left-2"
+    static let galleryNextButton = "right-2"
+    static let galleryButtonGlyph = "block -translate-y-px"
+    static let galleryThumbs = "grid grid-cols-3 gap-2 md:grid-cols-5"
+    static let galleryThumb = [
       "relative aspect-video overflow-hidden rounded border border-neutral-200 bg-neutral-100 p-0 transition",
       "hover:border-neutral-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70",
       "focus-visible:ring-offset-2 focus-visible:ring-offset-white data-[active=true]:border-[#9d2e29]",
@@ -149,8 +131,33 @@ enum Theme {
       "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
       "dark:data-[active=true]:border-[#e05e58] dark:data-[active=true]:ring-[#e05e58]/35",
     ].joined(separator: " ")
-    static let gameGalleryThumbImage = "block size-full object-cover"
-    static let gameReviewLink = "mt-5 inline-flex text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
+    static let galleryThumbImage = "block size-full object-cover"
+    static let reviewLink = "mt-5 inline-flex text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
+  }
+
+  enum About {
+    static let header = "flex w-full flex-col items-start gap-4 break-words leading-none tracking-normal"
+    static let pageTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let lead = "m-0 w-full break-words text-base font-semibold leading-6 text-neutral-950 dark:text-neutral-50"
+    static let body = "flex w-full flex-col gap-4"
+    static let text = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+    static let games = "flex w-full flex-col items-start gap-3 pt-2"
+    static let gamesHeader = "flex w-full flex-col gap-1.5"
+    static let gamesTitleRow = "flex w-full items-center justify-between gap-4"
+    static let gamesTitle = "m-0 w-full text-base font-bold leading-6 text-neutral-950 dark:text-neutral-50"
+    static let gamesViewAllLink = "shrink-0 text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
+    static let gamesDescription = "m-0 w-full break-words text-sm font-normal leading-5 text-neutral-800 dark:text-neutral-200"
+    static let gamesShelf = "flex w-full items-center overflow-visible py-3"
+    static let gameShelfButton = [
+      "group relative -ml-6 aspect-[2/3] w-12 shrink-0 overflow-hidden rounded border border-neutral-200",
+      "bg-neutral-50 p-0 shadow-sm transition duration-200 ease-out first:ml-0 hover:z-20",
+      "hover:-translate-y-2 hover:scale-110 hover:border-neutral-300 hover:bg-white hover:shadow-xl",
+      "focus-visible:z-20 focus-visible:-translate-y-2 focus-visible:scale-110 focus-visible:outline-none",
+      "focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
+      "focus-visible:ring-offset-white sm:-ml-7 sm:w-14 md:-ml-8 md:w-20 dark:rounded-lg dark:border-neutral-800",
+      "dark:bg-neutral-950 dark:hover:border-neutral-700 dark:focus-visible:ring-[#e05e58]/80",
+      "dark:focus-visible:ring-offset-neutral-950",
+    ].joined(separator: " ")
     static let career = "flex w-full flex-col items-start gap-3 pt-2"
     static let careerTitle = "m-0 w-full text-base font-bold leading-6 text-neutral-950 dark:text-neutral-50"
     static let careerList = "m-0 flex w-full list-none flex-col gap-2 p-0"
@@ -175,6 +182,37 @@ enum Theme {
     static let actionButton = "m-0 appearance-none border-0 bg-transparent p-0 text-sm font-normal leading-5 text-[#9d2e29] underline decoration-neutral-400 underline-offset-2 transition-colors hover:decoration-[#9d2e29] dark:text-[#e05e58] dark:decoration-neutral-600 dark:hover:decoration-[#e05e58]"
     static let tags = "m-0 flex list-none flex-wrap gap-2 p-0"
     static let tag = "rounded border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 text-sm leading-5 text-neutral-800 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
+  }
+
+  enum Games {
+    static let header = "flex w-full flex-col items-start gap-3 break-words leading-none tracking-normal"
+    static let pageTitle = "m-0 w-full font-serif text-2xl font-bold leading-8 text-[#9d2e29] dark:text-[#e05e58]"
+    static let pageText = "m-0 w-full break-words text-base font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+    static let filters = "flex w-full flex-wrap items-center gap-2"
+    static let filterButton = [
+      "rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm font-semibold leading-5",
+      "text-neutral-800 transition-colors hover:border-neutral-300 hover:bg-white",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70",
+      "focus-visible:ring-offset-2 focus-visible:ring-offset-white data-[active=true]:border-[#9d2e29]",
+      "data-[active=true]:bg-[#9d2e29] data-[active=true]:text-white dark:border-neutral-800",
+      "dark:bg-neutral-950 dark:text-neutral-200 dark:hover:border-neutral-700 dark:hover:bg-neutral-900",
+      "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
+      "dark:data-[active=true]:border-[#e05e58] dark:data-[active=true]:bg-[#e05e58] dark:data-[active=true]:text-neutral-950",
+    ].joined(separator: " ")
+    static let grid = "grid w-full grid-cols-2 gap-3 md:grid-cols-3 md:gap-4"
+    static let card = [
+      "group flex min-w-0 flex-col gap-2 rounded border border-neutral-200 bg-neutral-50 p-2 text-left",
+      "transition duration-200 ease-out hover:-translate-y-0.5 hover:border-neutral-300 hover:bg-white",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
+      "focus-visible:ring-offset-white disabled:opacity-40 dark:rounded-lg dark:border-neutral-800",
+      "dark:bg-neutral-950 dark:hover:border-neutral-700 dark:hover:bg-neutral-900/50",
+      "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
+    ].joined(separator: " ")
+    static let cardCoverFrame = "relative aspect-[2/3] w-full overflow-hidden rounded border border-neutral-200 bg-neutral-100 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-900"
+    static let cardContent = "flex min-w-0 flex-col gap-1 px-0.5 pb-1"
+    static let cardTitle = "m-0 break-words text-sm font-bold leading-5 text-neutral-950 dark:text-neutral-50"
+    static let cardMeta = "m-0 flex flex-wrap items-center gap-1 text-xs font-normal leading-4 text-neutral-600 dark:text-neutral-400"
+    static let cardMetaDot = "size-0.5 rounded-full bg-neutral-500 dark:bg-neutral-500"
   }
 
   enum Markdown {

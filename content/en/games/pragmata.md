@@ -8,6 +8,7 @@ edition: Standard
 beaten: false
 cover: games/pragmata/cover.jpg
 gallery: games/pragmata/gallery-01.jpg, games/pragmata/gallery-02.jpg, games/pragmata/gallery-03.jpg, games/pragmata/gallery-04.jpg, games/pragmata/gallery-05.jpg, games/pragmata/gallery-06.jpg, games/pragmata/gallery-07.jpg, games/pragmata/gallery-08.jpg, games/pragmata/gallery-09.jpg
+updated: 2026-06-20
 featured_order: 1
 ---
 
