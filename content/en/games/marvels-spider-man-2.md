@@ -9,6 +9,8 @@ started: February 17, 2026
 finished: June 10, 2026
 playtime: 17h 23m
 beaten: true
+cover: games/marvels-spider-man-2/cover.jpg
+updated: 2026-06-20
 featured_order: 3
 ---
 

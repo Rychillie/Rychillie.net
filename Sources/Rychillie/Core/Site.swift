@@ -10,6 +10,7 @@ enum Site {
   static let homePath = "/"
   static let notesPath = "/notes/"
   static let aboutPath = "/about/"
+  static let gamesPath = "/games/"
   static let imageAssetPath = "/static/images/"
 
   enum Link {
@@ -58,6 +59,10 @@ enum Site {
     locale == defaultLocale ? aboutPath : "/\(locale)/about/"
   }
 
+  static func localizedGamesPath(for locale: String) -> String {
+    locale == defaultLocale ? gamesPath : "/\(locale)/games/"
+  }
+
   static func displayDate(_ date: Date, locale: String) -> String {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: locale == portugueseLocale ? "pt_BR" : "en_US")
@@ -90,6 +95,10 @@ struct SiteCopy {
   let aboutParagraphs: [String]
   let aboutGamesTitle: String
   let aboutGamesDescription: String
+  let gamesPageTitle: String
+  let gamesPageDescription: String
+  let gamesViewAllAction: String
+  let gamesFilterAllAction: String
   let aboutCareerTitle: String
   let aboutCareerItems: [String]
   let gameOpenDetailsAction: String
@@ -162,7 +171,9 @@ struct SiteCopy {
     case .unknown: gameFormatUnknown
     }
   }
+}
 
+extension SiteCopy {
   static let english = SiteCopy(
     homeNav: "home",
     notesNav: "notes",
@@ -198,6 +209,10 @@ struct SiteCopy {
     ],
     aboutGamesTitle: "Games",
     aboutGamesDescription: "A small shelf of what I am playing, what I have finished, and what is still waiting for the right moment.",
+    gamesPageTitle: "Games",
+    gamesPageDescription: "A full shelf of what I am playing, what I have finished, and what is still waiting for the right moment.",
+    gamesViewAllAction: "View all",
+    gamesFilterAllAction: "All",
     aboutCareerTitle: "Career",
     aboutCareerItems: [
       "10+ years of professional software development experience.",
@@ -277,6 +292,10 @@ struct SiteCopy {
     ],
     aboutGamesTitle: "Games",
     aboutGamesDescription: "Uma pequena estante com o que estou jogando, o que já zerei e o que ainda está esperando o momento certo.",
+    gamesPageTitle: "Games",
+    gamesPageDescription: "Uma estante completa com o que estou jogando, o que já zerei e o que ainda está esperando o momento certo.",
+    gamesViewAllAction: "Ver tudo",
+    gamesFilterAllAction: "Todos",
     aboutCareerTitle: "Carreira",
     aboutCareerItems: [
       "10+ anos de experiência profissional em desenvolvimento de software.",

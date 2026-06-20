@@ -73,6 +73,7 @@ struct GameMetadata: Metadata {
   var gallery: [String]?
   var reviewSlug: String?
   var featuredOrder: Int?
+  var updated: String?
 
   enum CodingKeys: String, CodingKey {
     case status
@@ -89,5 +90,6 @@ struct GameMetadata: Metadata {
     case gallery
     case reviewSlug = "review_slug"
     case featuredOrder = "featured_order"
+    case updated
   }
 }

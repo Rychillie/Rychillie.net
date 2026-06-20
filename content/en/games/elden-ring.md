@@ -6,7 +6,9 @@ system: PC / PS4 / PS5 / Xbox
 playable_on: PC / PS4 / PS5 / Xbox
 edition: Standard
 beaten: false
-featured_order: 12
+cover: games/elden-ring/cover.jpg
+updated: 2026-06-20
+featured_order: 13
 ---
 
 # Elden Ring

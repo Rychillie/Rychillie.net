@@ -9,6 +9,8 @@ started: May 22, 2025
 finished: April 24, 2026
 playtime: 16h 17m
 beaten: true
+cover: games/the-last-of-us-part-i/cover.jpg
+updated: 2026-06-20
 featured_order: 4
 ---
 
