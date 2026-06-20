@@ -10,7 +10,7 @@ enum Site {
   static let homePath = "/"
   static let notesPath = "/notes/"
   static let aboutPath = "/about/"
-  static let gamesPath = "/games/"
+  static let gamesPath = "/about/games/"
   static let imageAssetPath = "/static/images/"
 
   enum Link {
@@ -60,7 +60,7 @@ enum Site {
   }
 
   static func localizedGamesPath(for locale: String) -> String {
-    locale == defaultLocale ? gamesPath : "/\(locale)/games/"
+    locale == defaultLocale ? gamesPath : "/\(locale)/about/games/"
   }
 
   static func displayDate(_ date: Date, locale: String) -> String {
