@@ -75,6 +75,8 @@ func renderHome(context: PageRenderingContext) -> Node {
         }
       }
 
+      // Re-enable this Home section when the logo/story block is ready.
+      /*
       homeText(copy.homeLatestNotesText)
 
       div(class: Theme.Home.brandGrid) {
@@ -83,6 +85,7 @@ func renderHome(context: PageRenderingContext) -> Node {
         siteCard(title: "Anthropic", leading: .icon(.anthropic, className: Theme.Card.brandIcon), showsArrow: false)
         siteCard(title: "OpenAI", leading: .icon(.openAI, className: Theme.Card.brandOpenAIIcon), showsArrow: false)
       }
+      */
 
       homeText(copy.homeBrandText)
 
