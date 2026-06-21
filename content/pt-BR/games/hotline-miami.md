@@ -10,6 +10,7 @@ finished: 2 de outubro de 2016
 playtime: 5h 16m
 beaten: true
 cover: games/hotline-miami/cover.jpg
+gallery: games/hotline-miami/gallery-01.jpg, games/hotline-miami/gallery-02.jpg, games/hotline-miami/gallery-03.jpg, games/hotline-miami/gallery-04.jpg, games/hotline-miami/gallery-05.jpg
 updated: 2026-06-20
 featured_order: 6
 ---
