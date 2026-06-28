@@ -11,10 +11,10 @@ playtime: 5h 16m
 beaten: true
 cover: games/hotline-miami/cover.jpg
 gallery: games/hotline-miami/gallery-01.jpg, games/hotline-miami/gallery-02.jpg, games/hotline-miami/gallery-03.jpg, games/hotline-miami/gallery-04.jpg, games/hotline-miami/gallery-05.jpg
-updated: 2026-06-20
+updated: 2026-06-27
 featured_order: 6
 ---
 
 # Hotline Miami
 
-Finished on PC through Steam. Fast, sharp, and still one of the games I think about when I think about style as a design constraint.
+Hotline Miami is a high-speed action game built around brutal gunplay, close-quarters violence, and relentless momentum. Every room pushes aggression, precision, and style to the edge.
