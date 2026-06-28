@@ -11,10 +11,10 @@ playtime: 74h 59m
 beaten: true
 cover: games/red-dead-redemption-2/cover.jpg
 gallery: games/red-dead-redemption-2/gallery-01.jpg, games/red-dead-redemption-2/gallery-02.jpg, games/red-dead-redemption-2/gallery-03.jpg, games/red-dead-redemption-2/gallery-04.jpg, games/red-dead-redemption-2/gallery-05.jpg
-updated: 2026-06-20
+updated: 2026-06-27
 featured_order: 5
 ---
 
 # Red Dead Redemption 2
 
-Zerado no PS5. Ele está aqui pelo mundo, pelo ritmo mais lento e pela forma como seus sistemas tornam lugares memoráveis.
+Arthur Morgan e a gangue Van der Linde são foras da lei sob pressão, caçados por agentes federais e caçadores de recompensa. Para sobreviver, eles roubam, lutam e cruzam o interior bruto enquanto seu modo de vida desmorona ao redor.

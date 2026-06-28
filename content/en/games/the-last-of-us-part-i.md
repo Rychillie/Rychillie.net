@@ -11,10 +11,10 @@ playtime: 16h 17m
 beaten: true
 cover: games/the-last-of-us-part-i/cover.jpg
 gallery: games/the-last-of-us-part-i/gallery-01.jpg, games/the-last-of-us-part-i/gallery-02.jpg, games/the-last-of-us-part-i/gallery-03.jpg, games/the-last-of-us-part-i/gallery-04.jpg, games/the-last-of-us-part-i/gallery-05.jpg, games/the-last-of-us-part-i/gallery-06.jpg, games/the-last-of-us-part-i/gallery-07.jpg, games/the-last-of-us-part-i/gallery-08.jpg
-updated: 2026-06-20
+updated: 2026-06-27
 featured_order: 4
 ---
 
 # The Last of Us Part I
 
-Finished on PS5 through PSN Plus. It is one of the clearest examples on my shelf of how narrative, restraint, and pacing can shape an experience.
+Joel and Ellie cross a post-apocalyptic America in a story about survival, loss, and fragile trust. Along the way, they face infected threats, hostile survivors, and allies and enemies who leave a lasting mark.
