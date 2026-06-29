@@ -1,0 +1,16 @@
+---
+status: wishlist
+collection: wishlist
+format: unknown
+system: PS2
+playable_on: PS2
+edition: Standard
+beaten: false
+cover: games/shadow-of-the-colossus/cover.jpg
+updated: 2026-06-20
+featured_order: 268
+---
+
+# Shadow of the Colossus
+
+Wishlist for PS2. Originally released in 2005; IGN life list #25.

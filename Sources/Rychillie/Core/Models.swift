@@ -2,6 +2,7 @@ import Saga
 
 enum NoteType: String, Codable {
   case article
+  case review
   case talk
   case video
   case participated

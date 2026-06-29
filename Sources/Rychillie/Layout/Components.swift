@@ -299,3 +299,167 @@ func tagList(_ tags: [String]) -> Node {
     }
   }
 }
+
+func sortedGames(from context: PageRenderingContext) -> [Item<GameMetadata>] {
+  context.allItems
+    .compactMap { $0 as? Item<GameMetadata> }
+    .sorted { first, second in
+      let firstUpdated = first.metadata.updated ?? ""
+      let secondUpdated = second.metadata.updated ?? ""
+
+      if firstUpdated != secondUpdated {
+        return firstUpdated > secondUpdated
+      }
+
+      let firstOrder = first.metadata.featuredOrder ?? Int.max
+      let secondOrder = second.metadata.featuredOrder ?? Int.max
+
+      if firstOrder != secondOrder {
+        return firstOrder < secondOrder
+      }
+
+      return first.title < second.title
+    }
+}
+
+func gameModalID(for game: Item<GameMetadata>) -> String {
+  "game-\(game.filenameWithoutExtension)"
+}
+
+func gameStatusClass(_ status: GameStatus) -> String {
+  switch status {
+  case .playing: Theme.Game.statusPlaying
+  case .completed: Theme.Game.statusCompleted
+  case .backlog: Theme.Game.statusBacklog
+  case .wishlist: Theme.Game.statusWishlist
+  }
+}
+
+func gameCover(_ game: Item<GameMetadata>, class className: String) -> Node {
+  if let cover = nonEmptyString(game.metadata.cover) {
+    return assetImage(cover, alt: "", class: className, loading: "lazy")
+  }
+
+  return div(class: Theme.Game.placeholder, customAttributes: ["aria-hidden": "true"]) {
+    span(class: Theme.Game.placeholderLinePrimary) {}
+    span(class: Theme.Game.placeholderLineSecondary) {}
+  }
+}
+
+func gameDialog(game: Item<GameMetadata>, copy: SiteCopy, locale: String) -> Node {
+  let modalID = gameModalID(for: game)
+  let titleID = "\(modalID)-title"
+
+  return dialog(
+    class: Theme.Game.dialog,
+    id: modalID,
+    customAttributes: [
+      "aria-labelledby": titleID,
+      "data-game-dialog": "",
+    ]
+  ) {
+    div(class: Theme.Game.dialogPanel) {
+      gameVisual(game: game, copy: copy)
+
+      div(class: Theme.Game.dialogBody) {
+        div(class: Theme.Game.dialogTitleGroup) {
+          h3(class: Theme.Game.dialogTitle, id: titleID) { game.title }
+          p(class: Theme.Game.dialogStatus) { game.metadata.status.label(locale: locale) }
+        }
+
+        if !game.body.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+          div(class: "\(Theme.Markdown.content) \(Theme.Game.markdown)") {
+            Node.raw(game.body)
+          }
+        }
+
+        if let reviewSlug = nonEmptyString(game.metadata.reviewSlug) {
+          a(class: Theme.Game.reviewLink, href: "\(Site.localizedNotesPath(for: locale))\(reviewSlug)/") {
+            copy.gameReviewAction
+          }
+        }
+      }
+    }
+  }
+}
+
+func gameVisual(game: Item<GameMetadata>, copy: SiteCopy) -> Node {
+  let gallery = game.metadata.gallery ?? []
+  let galleryAttributes: [String: String] = gallery.isEmpty ? [:] : [
+    "data-game-gallery": "",
+    "data-game-gallery-images": gallery.map(imageAsset).joined(separator: "|"),
+    "data-game-gallery-index": "0",
+  ]
+
+  return div(
+    class: Theme.Game.gallery,
+    customAttributes: galleryAttributes
+  ) {
+    div(class: Theme.Game.galleryStage) {
+      if let firstImage = gallery.first {
+        img(
+          alt: game.title,
+          class: Theme.Game.galleryImage,
+          decoding: "async",
+          loading: "lazy",
+          src: imageAsset(firstImage),
+          customAttributes: ["data-game-gallery-image": ""]
+        )
+      } else if let cover = nonEmptyString(game.metadata.cover) {
+        assetImage(cover, alt: game.title, class: Theme.Game.galleryImage, loading: "lazy")
+      } else {
+        div(class: Theme.Game.galleryPlaceholder, customAttributes: ["aria-hidden": "true"]) {
+          span(class: Theme.Game.placeholderLinePrimary) {}
+          span(class: Theme.Game.placeholderLineSecondary) {}
+        }
+      }
+
+      button(
+        class: Theme.Game.closeButton,
+        type: "button",
+        customAttributes: [
+          "aria-label": copy.gameCloseAction,
+          "data-game-close": "",
+        ]
+      ) {
+        siteIcon(.close, class: Theme.Game.closeIcon)
+      }
+
+      if gallery.count > 1 {
+        button(
+          class: "\(Theme.Game.galleryNavButton) \(Theme.Game.galleryPreviousButton)",
+          type: "button",
+          customAttributes: [
+            "aria-label": copy.gameGalleryPreviousAction,
+            "data-game-gallery-prev": "",
+          ]
+        ) {
+          siteIcon(.chevronLeft, class: Theme.Game.galleryButtonIcon)
+        }
+
+        button(
+          class: "\(Theme.Game.galleryNavButton) \(Theme.Game.galleryNextButton)",
+          type: "button",
+          customAttributes: [
+            "aria-label": copy.gameGalleryNextAction,
+            "data-game-gallery-next": "",
+          ]
+        ) {
+          siteIcon(.chevronRight, class: Theme.Game.galleryButtonIcon)
+        }
+      }
+    }
+  }
+}
+
+func gamesScript() -> Node {
+  script(defer: true, src: Saga.hashed("/static/scripts/about-games.js"))
+}
+
+func nonEmptyString(_ value: String?) -> String? {
+  guard let value = value?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty else {
+    return nil
+  }
+
+  return value
+}

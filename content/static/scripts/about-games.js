@@ -125,35 +125,19 @@
 
   function setGalleryIndex(gallery, nextIndex) {
     var image = gallery.querySelector("[data-game-gallery-image]");
-    var counter = gallery.querySelector("[data-game-gallery-counter]");
-    var thumbs = Array.prototype.slice.call(gallery.querySelectorAll("[data-game-gallery-thumb]"));
+    var images = (gallery.getAttribute("data-game-gallery-images") || "").split("|").filter(Boolean);
 
-    if (!image || thumbs.length === 0) {
+    if (!image || images.length === 0) {
       return;
     }
 
-    var count = thumbs.length;
+    var count = images.length;
     var activeIndex = ((nextIndex % count) + count) % count;
-    var activeThumb = thumbs[activeIndex];
-    var activeSrc = activeThumb.getAttribute("data-game-gallery-src");
+    var activeSrc = images[activeIndex];
 
     if (activeSrc) {
       image.src = activeSrc;
     }
-
-    if (counter) {
-      counter.textContent = activeIndex + 1 + " / " + count;
-    }
-
-    thumbs.forEach(function (thumb, index) {
-      if (index === activeIndex) {
-        thumb.setAttribute("aria-current", "true");
-        thumb.setAttribute("data-active", "true");
-      } else {
-        thumb.removeAttribute("aria-current");
-        thumb.removeAttribute("data-active");
-      }
-    });
 
     gallery.setAttribute("data-game-gallery-index", String(activeIndex));
   }
@@ -164,19 +148,13 @@
   }
 
   function setupGallery(gallery) {
-    var thumbs = Array.prototype.slice.call(gallery.querySelectorAll("[data-game-gallery-thumb]"));
+    var images = (gallery.getAttribute("data-game-gallery-images") || "").split("|").filter(Boolean);
     var previousButton = gallery.querySelector("[data-game-gallery-prev]");
     var nextButton = gallery.querySelector("[data-game-gallery-next]");
 
-    if (thumbs.length === 0) {
+    if (images.length === 0) {
       return;
     }
-
-    thumbs.forEach(function (thumb, index) {
-      thumb.addEventListener("click", function () {
-        setGalleryIndex(gallery, index);
-      });
-    });
 
     if (previousButton) {
       previousButton.addEventListener("click", function () {

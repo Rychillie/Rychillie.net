@@ -80,58 +80,36 @@ enum Theme {
     static let statusBacklog = "bg-neutral-500 dark:bg-neutral-400"
     static let statusWishlist = "bg-neutral-300 dark:bg-neutral-700"
     static let dialog = [
-      "m-auto max-h-[min(90vh,820px)] w-[calc(100vw-2rem)] max-w-[760px] overflow-hidden rounded",
+      "m-auto max-h-[min(92vh,860px)] w-[calc(100vw-2rem)] max-w-[820px] overflow-hidden rounded",
       "border border-neutral-200 bg-white p-0 text-neutral-950 shadow-2xl backdrop:bg-neutral-950/65",
       "dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50",
       "dark:backdrop:bg-neutral-950/80",
     ].joined(separator: " ")
-    static let dialogPanel = "flex max-h-[min(90vh,820px)] flex-col"
-    static let dialogHeader = "flex items-start justify-between gap-4 border-b border-neutral-200 p-4 dark:border-neutral-800 md:p-5"
+    static let dialogPanel = "flex max-h-[min(92vh,860px)] flex-col overflow-hidden"
     static let dialogTitleGroup = "flex min-w-0 flex-col gap-1"
-    static let dialogTitle = "m-0 break-words text-lg font-bold leading-7 text-neutral-950 dark:text-neutral-50"
-    static let dialogStatus = "m-0 text-sm font-semibold leading-5 text-[#9d2e29] dark:text-[#e05e58]"
+    static let dialogTitle = "m-0 break-words text-lg font-bold leading-7 text-neutral-950 md:text-2xl md:leading-8 dark:text-neutral-50"
+    static let dialogStatus = "m-0 text-sm font-semibold leading-5 text-[#9d2e29] md:text-base md:leading-6 dark:text-[#e05e58]"
     static let closeButton = [
-      "flex size-11 shrink-0 appearance-none items-center justify-center rounded border border-neutral-200",
-      "bg-neutral-50 p-0 text-neutral-800 transition-colors hover:border-neutral-300 hover:bg-white hover:text-neutral-950",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70 focus-visible:ring-offset-2",
-      "focus-visible:ring-offset-white dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200",
-      "dark:hover:border-neutral-700 dark:hover:text-neutral-50 dark:focus-visible:ring-[#e05e58]/80",
-      "dark:focus-visible:ring-offset-neutral-950",
+      "absolute right-3 top-3 z-20 flex size-11 shrink-0 appearance-none items-center justify-center rounded-full",
+      "border border-white/35 bg-neutral-950/70 p-0 text-white shadow-lg transition-colors",
+      "hover:bg-neutral-950/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90",
     ].joined(separator: " ")
-    static let closeIcon = "block size-5"
-    static let dialogBody = "max-h-[calc(min(90vh,820px)-5rem)] overflow-y-auto p-4 md:p-5"
-    static let metaList = "mb-4 grid grid-cols-1 gap-x-4 md:grid-cols-2"
-    static let metaItem = "min-w-0 border-t border-neutral-200 py-2 dark:border-neutral-800"
-    static let metaLabel = "m-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
-    static let metaValue = "m-0 break-words text-sm font-normal leading-5 text-neutral-900 dark:text-neutral-100"
-    static let markdown = "mt-1"
-    static let gallery = "mt-5 flex flex-col gap-3"
-    static let galleryCarousel = "flex flex-col gap-3"
-    static let galleryHeader = "flex items-center justify-between gap-3"
-    static let galleryTitle = "m-0 text-sm font-bold leading-5 text-neutral-950 dark:text-neutral-50"
-    static let galleryCounter = "shrink-0 text-xs font-semibold leading-4 text-neutral-500 dark:text-neutral-400"
-    static let galleryStage = "relative overflow-hidden rounded border border-neutral-200 bg-neutral-100 dark:rounded-lg dark:border-neutral-800 dark:bg-neutral-900"
+    static let closeIcon = "block size-6"
+    static let dialogBody = "min-h-0 overflow-y-auto p-4 md:p-6"
+    static let markdown = "mt-4 md:mt-5 md:text-lg md:leading-7"
+    static let gallery = "relative shrink-0 border-b border-neutral-200 dark:border-neutral-800"
+    static let galleryStage = "relative overflow-hidden bg-neutral-100 dark:bg-neutral-900"
     static let galleryImage = "block aspect-video w-full object-cover"
+    static let galleryPlaceholder = "flex aspect-video w-full flex-col justify-end gap-1 bg-neutral-100 p-4 dark:bg-neutral-900"
     static let galleryNavButton = [
-      "absolute top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full",
-      "border border-white/35 bg-neutral-950/70 p-0 text-xl font-bold leading-none text-white",
+      "absolute top-1/2 z-20 flex size-11 -translate-y-1/2 items-center justify-center rounded-full",
+      "border border-white/35 bg-neutral-950/70 p-0 text-white",
       "shadow-lg transition-colors hover:bg-neutral-950/85 focus-visible:outline-none",
       "focus-visible:ring-2 focus-visible:ring-white/90",
     ].joined(separator: " ")
-    static let galleryPreviousButton = "left-2"
-    static let galleryNextButton = "right-2"
-    static let galleryButtonGlyph = "block -translate-y-px"
-    static let galleryThumbs = "grid grid-cols-3 gap-2 md:grid-cols-5"
-    static let galleryThumb = [
-      "relative aspect-video overflow-hidden rounded border border-neutral-200 bg-neutral-100 p-0 transition",
-      "hover:border-neutral-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9d2e29]/70",
-      "focus-visible:ring-offset-2 focus-visible:ring-offset-white data-[active=true]:border-[#9d2e29]",
-      "data-[active=true]:ring-2 data-[active=true]:ring-[#9d2e29]/35 dark:rounded-lg",
-      "dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700",
-      "dark:focus-visible:ring-[#e05e58]/80 dark:focus-visible:ring-offset-neutral-950",
-      "dark:data-[active=true]:border-[#e05e58] dark:data-[active=true]:ring-[#e05e58]/35",
-    ].joined(separator: " ")
-    static let galleryThumbImage = "block size-full object-cover"
+    static let galleryPreviousButton = "left-3"
+    static let galleryNextButton = "right-3"
+    static let galleryButtonIcon = "block size-6"
     static let reviewLink = "mt-5 inline-flex text-sm font-semibold leading-5 text-[#9d2e29] no-underline hover:underline dark:text-[#e05e58]"
   }
 
