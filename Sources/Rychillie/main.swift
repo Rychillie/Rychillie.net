@@ -45,6 +45,37 @@ func generateImages(_ saga: Saga) throws {
   }
 }
 
+func unpublishedNotes(from items: [AnyItem]) -> [Item<NoteMetadata>] {
+  items
+    .compactMap { $0 as? Item<NoteMetadata> }
+    .filter { !$0.metadata.isPublished }
+}
+
+func removeGeneratedUnpublishedNotes(_ saga: Saga) throws {
+  for note in unpublishedNotes(from: saga.allItems) {
+    let htmlPath = note.relativeDestination.string
+    let markdownPath = LLMS.markdownPath(for: note)
+    for relativePath in [htmlPath, markdownPath] {
+      let outputPath = relativePath.hasPrefix("/") ? String(relativePath.dropFirst()) : relativePath
+      let outputURL = URL(fileURLWithPath: saga.outputPath.string).appendingPathComponent(outputPath)
+      if FileManager.default.fileExists(atPath: outputURL.path) {
+        try FileManager.default.removeItem(at: outputURL)
+      }
+    }
+  }
+}
+
+func renderSitemap(context: PageRenderingContext) -> String {
+  let unpublishedPaths = Set(unpublishedNotes(from: context.allItems).map(\.relativeDestination.string))
+
+  return Saga.sitemap(baseURL: Site.baseURL) { path in
+    let outputPath = path.string
+    return outputPath.hasSuffix(".html") &&
+      !outputPath.hasPrefix("articles/") &&
+      !unpublishedPaths.contains(outputPath)
+  }(context)
+}
+
 try await compileTailwind()
 
 try await Saga(input: "content", output: "deploy")
@@ -57,6 +88,7 @@ try await Saga(input: "content", output: "deploy")
     try removeTailwindSourceFromDeploy(saga)
     try removeStaticIconsFromDeploy(saga)
     try LLMS.writeMarkdownNotes(saga)
+    try removeGeneratedUnpublishedNotes(saga)
     try generateImages(saga)
   }
   .postProcess { content, relativePath in
@@ -90,11 +122,5 @@ try await Saga(input: "content", output: "deploy")
   .createPage("articles/index.html", using: Saga.redirectHTML(to: Site.notesPath))
   .createPage("llms.txt", using: LLMS.renderIndex)
   .createPage("llms-full.txt", using: LLMS.renderFull)
-  .createPage(
-    "sitemap.xml",
-    using: Saga.sitemap(baseURL: Site.baseURL) { path in
-      let outputPath = path.string
-      return outputPath.hasSuffix(".html") && !outputPath.hasPrefix("articles/")
-    }
-  )
+  .createPage("sitemap.xml", using: renderSitemap)
   .run()

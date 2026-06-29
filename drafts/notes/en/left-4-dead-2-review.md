@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for The Last of Us Part I, a completed game in my personal catalog.
-date: 2026-04-24
+summary: Review draft for Left 4 Dead 2, a completed game in my personal catalog.
+published: false
+date: 2016-07-08
 ---
 
-# The Last of Us Part I
+# Left 4 Dead 2
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: The Last of Us Part I
+- Game: Left 4 Dead 2
 - Status: Completed
-- Platform: PS5
+- Platform: PC
 - Edition: Standard
-- Finished: April 24, 2026
-- Playtime: 16h 17m
+- Finished: 2016-07-08
+- Playtime: 23h 31m
 
 ## Review
 

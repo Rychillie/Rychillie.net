@@ -7,6 +7,7 @@ playable_on: PC / PS4 / Xbox One
 edition: Standard
 beaten: false
 cover: games/resident-evil-7-biohazard/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 253
 ---

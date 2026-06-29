@@ -7,6 +7,7 @@ playable_on: PS4 / PS5
 edition: Standard
 beaten: false
 cover: games/uncharted-the-lost-legacy/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 318
 ---

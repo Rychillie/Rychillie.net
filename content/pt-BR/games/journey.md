@@ -7,6 +7,7 @@ playable_on: PS3
 edition: Standard
 beaten: false
 cover: games/journey/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 197
 ---

@@ -7,6 +7,7 @@ playable_on: PS2
 edition: Standard
 beaten: false
 cover: games/devil-may-cry-3/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 153
 ---

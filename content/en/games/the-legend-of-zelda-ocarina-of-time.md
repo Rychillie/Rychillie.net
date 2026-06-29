@@ -7,6 +7,7 @@ playable_on: Nintendo 64
 edition: Standard
 beaten: false
 cover: games/the-legend-of-zelda-ocarina-of-time/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 296
 ---

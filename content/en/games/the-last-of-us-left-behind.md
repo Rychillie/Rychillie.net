@@ -7,6 +7,7 @@ playable_on: PS5
 edition: Included in The Last of Us Part I
 beaten: false
 cover: games/the-last-of-us-left-behind/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 294
 ---

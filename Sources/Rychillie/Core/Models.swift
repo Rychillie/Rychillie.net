@@ -21,9 +21,14 @@ struct NoteMetadata: Metadata {
   let tags: [String]
   var type: NoteType?
   var summary: String?
+  var published: Bool?
 
   var displayType: NoteType {
     type ?? .article
+  }
+
+  var isPublished: Bool {
+    published ?? true
   }
 }
 
@@ -75,6 +80,11 @@ struct GameMetadata: Metadata {
   var reviewSlug: String?
   var featuredOrder: Int?
   var updated: String?
+  var published: Bool?
+
+  var isPublished: Bool {
+    published ?? true
+  }
 
   enum CodingKeys: String, CodingKey {
     case status
@@ -92,5 +102,6 @@ struct GameMetadata: Metadata {
     case reviewSlug = "review_slug"
     case featuredOrder = "featured_order"
     case updated
+    case published
   }
 }

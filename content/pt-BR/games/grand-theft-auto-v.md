@@ -11,6 +11,7 @@ playtime: 36h 45m
 beaten: true
 cover: games/grand-theft-auto-v/cover.jpg
 review_slug: grand-theft-auto-v-review
+published: false
 updated: 2026-06-20
 featured_order: 183
 ---

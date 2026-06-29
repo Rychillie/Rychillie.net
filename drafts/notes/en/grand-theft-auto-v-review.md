@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Marvel's Spider-Man 2, a completed game in my personal catalog.
-date: 2026-06-10
+summary: Review draft for Grand Theft Auto V, a completed game in my personal catalog.
+published: false
+date: 2025-09-26
 ---
 
-# Marvel's Spider-Man 2
+# Grand Theft Auto V
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Marvel's Spider-Man 2
+- Game: Grand Theft Auto V
 - Status: Completed
 - Platform: PS5
 - Edition: Standard
-- Finished: June 10, 2026
-- Playtime: 17h 23m
+- Finished: 2025-09-26
+- Playtime: 36h 45m
 
 ## Review
 

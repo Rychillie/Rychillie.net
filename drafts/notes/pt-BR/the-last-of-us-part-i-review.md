@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Grand Theft Auto V, um jogo zerado no meu catálogo pessoal.
-date: 2025-09-26
+summary: Rascunho de review de The Last of Us Parte I, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2026-04-24
 ---
 
-# Grand Theft Auto V
+# The Last of Us Parte I
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Grand Theft Auto V
+- Jogo: The Last of Us Parte I
 - Status: Zerado
 - Plataforma: PS5
 - Edição: Standard
-- Finalizado: 2025-09-26
-- Tempo de jogo: 36h 45m
+- Finalizado: 24 de abril de 2026
+- Tempo de jogo: 16h 17m
 
 ## Análise
 

@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Red Dead Redemption 2, um jogo zerado no meu catálogo pessoal.
-date: 2025-06-26
+summary: Rascunho de review de Castle Crashers, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2015-04-01
 ---
 
-# Red Dead Redemption 2
+# Castle Crashers
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Red Dead Redemption 2
+- Jogo: Castle Crashers
 - Status: Zerado
-- Plataforma: PS5
+- Plataforma: PC
 - Edição: Standard
-- Finalizado: 26 de junho de 2025
-- Tempo de jogo: 74h 59m
+- Finalizado: 2015-04-01
+- Tempo de jogo: 27h 25m
 
 ## Análise
 

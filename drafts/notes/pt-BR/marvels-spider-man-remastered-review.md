@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Castle Crashers, um jogo zerado no meu catálogo pessoal.
-date: 2015-04-01
+summary: Rascunho de review de Marvel's Spider-Man Remastered, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2025-09-16
 ---
 
-# Castle Crashers
+# Marvel's Spider-Man Remastered
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Castle Crashers
+- Jogo: Marvel's Spider-Man Remastered
 - Status: Zerado
-- Plataforma: PC
-- Edição: Standard
-- Finalizado: 2015-04-01
-- Tempo de jogo: 27h 25m
+- Plataforma: PS5
+- Edição: Remastered
+- Finalizado: 2025-09-16
+- Tempo de jogo: 30h 13m
 
 ## Análise
 

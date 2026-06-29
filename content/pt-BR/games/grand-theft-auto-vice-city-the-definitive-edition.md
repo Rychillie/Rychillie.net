@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: The Definitive Edition
 beaten: false
 cover: games/grand-theft-auto-vice-city-the-definitive-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 180
 ---

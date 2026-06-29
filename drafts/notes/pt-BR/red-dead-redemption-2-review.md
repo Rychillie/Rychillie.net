@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Left 4 Dead, um jogo zerado no meu catálogo pessoal.
-date: 2016-07-03
+summary: Rascunho de review de Red Dead Redemption 2, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2025-06-26
 ---
 
-# Left 4 Dead
+# Red Dead Redemption 2
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Left 4 Dead
+- Jogo: Red Dead Redemption 2
 - Status: Zerado
-- Plataforma: PC
+- Plataforma: PS5
 - Edição: Standard
-- Finalizado: 2016-07-03
-- Tempo de jogo: 3h 20m
+- Finalizado: 26 de junho de 2025
+- Tempo de jogo: 74h 59m
 
 ## Análise
 

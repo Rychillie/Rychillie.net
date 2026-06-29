@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Marvel's Spider-Man - Miles Morales, a completed game in my personal catalog.
-date: 2025-11-09
+summary: Review draft for Red Dead Redemption 2, a completed game in my personal catalog.
+published: false
+date: 2025-06-26
 ---
 
-# Marvel's Spider-Man - Miles Morales
+# Red Dead Redemption 2
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Marvel's Spider-Man - Miles Morales
+- Game: Red Dead Redemption 2
 - Status: Completed
 - Platform: PS5
 - Edition: Standard
-- Finished: 2025-11-09
-- Playtime: 11h 49m
+- Finished: June 26, 2025
+- Playtime: 74h 59m
 
 ## Review
 

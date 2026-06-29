@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: +1 Edition
 beaten: false
 cover: games/galaxy-of-pen-and-paper-1-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 175
 ---

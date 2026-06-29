@@ -1,23 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Until Dawn - PS4, um jogo zerado no meu catálogo pessoal.
-date: 2025-07-15
+summary: Rascunho de review de Grand Theft Auto V, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2025-09-26
 ---
 
-# Until Dawn - PS4
+# Grand Theft Auto V
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Until Dawn - PS4
+- Jogo: Grand Theft Auto V
 - Status: Zerado
-- Plataforma: PS4
-- Jogável em: PS5
+- Plataforma: PS5
 - Edição: Standard
-- Finalizado: 2025-07-15
-- Tempo de jogo: 6h 15m
+- Finalizado: 2025-09-26
+- Tempo de jogo: 36h 45m
 
 ## Análise
 

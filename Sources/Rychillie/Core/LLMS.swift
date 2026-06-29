@@ -109,6 +109,7 @@ enum LLMS {
   private static func sortedNotes(from items: [AnyItem]) -> [Item<NoteMetadata>] {
     items
       .compactMap { $0 as? Item<NoteMetadata> }
+      .filter { $0.metadata.isPublished }
       .sorted { lhs, rhs in
         if lhs.date != rhs.date {
           return lhs.date > rhs.date

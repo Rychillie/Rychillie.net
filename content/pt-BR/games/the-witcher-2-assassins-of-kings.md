@@ -7,6 +7,7 @@ playable_on: PC / Xbox 360
 edition: Standard
 beaten: false
 cover: games/the-witcher-2-assassins-of-kings/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 305
 ---

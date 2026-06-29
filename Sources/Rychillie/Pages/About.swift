@@ -6,6 +6,7 @@ func renderAbout(context: PageRenderingContext) -> Node {
   let copy = Site.copy(for: locale)
   let canonicalPath = context.translations[locale] ?? Site.localizedAboutPath(for: locale)
   let games = sortedGames(from: context)
+  let reviewSlugs = publishedReviewSlugs(from: context)
 
   return baseHtml(
     title: copy.aboutTitle,
@@ -27,7 +28,7 @@ func renderAbout(context: PageRenderingContext) -> Node {
       }
 
       if !games.isEmpty {
-        aboutGamesSection(games: games, copy: copy, locale: locale)
+        aboutGamesSection(games: games, copy: copy, locale: locale, publishedReviewSlugs: reviewSlugs)
       }
 
       section(class: Theme.About.career) {
@@ -49,7 +50,12 @@ func renderAbout(context: PageRenderingContext) -> Node {
   }
 }
 
-private func aboutGamesSection(games: [Item<GameMetadata>], copy: SiteCopy, locale: String) -> Node {
+private func aboutGamesSection(
+  games: [Item<GameMetadata>],
+  copy: SiteCopy,
+  locale: String,
+  publishedReviewSlugs: Set<String>
+) -> Node {
   let shelfGames = Array(games.prefix(12))
 
   return section(class: Theme.About.games, id: "games") {
@@ -70,7 +76,7 @@ private func aboutGamesSection(games: [Item<GameMetadata>], copy: SiteCopy, loca
     }
 
     shelfGames.map { game in
-      gameDialog(game: game, copy: copy, locale: locale)
+      gameDialog(game: game, copy: copy, locale: locale, publishedReviewSlugs: publishedReviewSlugs)
     }
   }
 }

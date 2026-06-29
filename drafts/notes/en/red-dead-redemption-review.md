@@ -2,6 +2,7 @@
 tags: games, review, completed
 type: review
 summary: Review draft for Red Dead Redemption, a completed game in my personal catalog.
+published: false
 date: 2024-10-30
 ---
 

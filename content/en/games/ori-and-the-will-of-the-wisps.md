@@ -7,6 +7,7 @@ playable_on: PC / Xbox One
 edition: Standard
 beaten: false
 cover: games/ori-and-the-will-of-the-wisps/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 235
 ---

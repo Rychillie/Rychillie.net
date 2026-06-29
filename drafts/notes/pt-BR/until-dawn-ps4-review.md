@@ -1,22 +1,24 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Marvel's Spider-Man - Miles Morales, um jogo zerado no meu catálogo pessoal.
-date: 2025-11-09
+summary: Rascunho de review de Until Dawn - PS4, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2025-07-15
 ---
 
-# Marvel's Spider-Man - Miles Morales
+# Until Dawn - PS4
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Marvel's Spider-Man - Miles Morales
+- Jogo: Until Dawn - PS4
 - Status: Zerado
-- Plataforma: PS5
+- Plataforma: PS4
+- Jogável em: PS5
 - Edição: Standard
-- Finalizado: 2025-11-09
-- Tempo de jogo: 11h 49m
+- Finalizado: 2025-07-15
+- Tempo de jogo: 6h 15m
 
 ## Análise
 

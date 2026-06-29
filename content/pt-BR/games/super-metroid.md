@@ -7,6 +7,7 @@ playable_on: SNES
 edition: Standard
 beaten: false
 cover: games/super-metroid/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 286
 ---

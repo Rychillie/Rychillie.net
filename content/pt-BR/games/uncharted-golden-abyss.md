@@ -7,6 +7,7 @@ playable_on: PS Vita
 edition: Standard
 beaten: false
 cover: games/uncharted-golden-abyss/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 317
 ---

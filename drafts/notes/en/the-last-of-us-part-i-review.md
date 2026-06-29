@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Red Dead Redemption 2, a completed game in my personal catalog.
-date: 2025-06-26
+summary: Review draft for The Last of Us Part I, a completed game in my personal catalog.
+published: false
+date: 2026-04-24
 ---
 
-# Red Dead Redemption 2
+# The Last of Us Part I
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Red Dead Redemption 2
+- Game: The Last of Us Part I
 - Status: Completed
 - Platform: PS5
 - Edition: Standard
-- Finished: June 26, 2025
-- Playtime: 74h 59m
+- Finished: April 24, 2026
+- Playtime: 16h 17m
 
 ## Review
 

@@ -303,6 +303,7 @@ func tagList(_ tags: [String]) -> Node {
 func sortedGames(from context: PageRenderingContext) -> [Item<GameMetadata>] {
   context.allItems
     .compactMap { $0 as? Item<GameMetadata> }
+    .filter { $0.metadata.isPublished }
     .sorted { first, second in
       let firstUpdated = first.metadata.updated ?? ""
       let secondUpdated = second.metadata.updated ?? ""
@@ -320,6 +321,15 @@ func sortedGames(from context: PageRenderingContext) -> [Item<GameMetadata>] {
 
       return first.title < second.title
     }
+}
+
+func publishedReviewSlugs(from context: PageRenderingContext) -> Set<String> {
+  Set(
+    context.allItems
+      .compactMap { $0 as? Item<NoteMetadata> }
+      .filter { $0.metadata.isPublished }
+      .map(\.filenameWithoutExtension)
+  )
 }
 
 func gameModalID(for game: Item<GameMetadata>) -> String {
@@ -346,7 +356,12 @@ func gameCover(_ game: Item<GameMetadata>, class className: String) -> Node {
   }
 }
 
-func gameDialog(game: Item<GameMetadata>, copy: SiteCopy, locale: String) -> Node {
+func gameDialog(
+  game: Item<GameMetadata>,
+  copy: SiteCopy,
+  locale: String,
+  publishedReviewSlugs: Set<String>
+) -> Node {
   let modalID = gameModalID(for: game)
   let titleID = "\(modalID)-title"
 
@@ -373,7 +388,8 @@ func gameDialog(game: Item<GameMetadata>, copy: SiteCopy, locale: String) -> Nod
           }
         }
 
-        if let reviewSlug = nonEmptyString(game.metadata.reviewSlug) {
+        if let reviewSlug = nonEmptyString(game.metadata.reviewSlug),
+           publishedReviewSlugs.contains(reviewSlug) {
           a(class: Theme.Game.reviewLink, href: "\(Site.localizedNotesPath(for: locale))\(reviewSlug)/") {
             copy.gameReviewAction
           }

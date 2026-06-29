@@ -7,6 +7,7 @@ playable_on: Xbox 360
 edition: Standard
 beaten: false
 cover: games/braid/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 125
 ---

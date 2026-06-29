@@ -7,6 +7,7 @@ playable_on: PS5
 edition: Standard
 beaten: false
 cover: games/the-unfinished-swan/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 303
 ---
