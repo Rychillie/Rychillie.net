@@ -5,6 +5,8 @@ enum SiteIcon {
   case anthropic
   case apple
   case arrowUpRight
+  case chevronLeft
+  case chevronRight
   case close
   case discord
   case openAI
@@ -12,7 +14,7 @@ enum SiteIcon {
 
   var viewBox: String {
     switch self {
-    case .anthropic, .arrowUpRight, .close:
+    case .anthropic, .arrowUpRight, .chevronLeft, .chevronRight, .close:
       "0 0 24 24"
     case .apple:
       "0 0 19.5938 24"
@@ -55,9 +57,9 @@ enum SiteIcon {
           "stroke-width": "2",
         ]
       )
-    case .close:
+    case .chevronLeft:
       svgPath(
-        "M18 6L6 18M6 6L18 18",
+        "m15 18-6-6 6-6",
         attributes: [
           "stroke": "currentColor",
           "stroke-linecap": "round",
@@ -65,6 +67,37 @@ enum SiteIcon {
           "stroke-width": "2",
         ]
       )
+    case .chevronRight:
+      svgPath(
+        "m9 18 6-6-6-6",
+        attributes: [
+          "stroke": "currentColor",
+          "stroke-linecap": "round",
+          "stroke-linejoin": "round",
+          "stroke-width": "2",
+        ]
+      )
+    case .close:
+      Node.fragment([
+        svgPath(
+          "M18 6 6 18",
+          attributes: [
+            "stroke": "currentColor",
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "stroke-width": "2",
+          ]
+        ),
+        svgPath(
+          "m6 6 12 12",
+          attributes: [
+            "stroke": "currentColor",
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "stroke-width": "2",
+          ]
+        ),
+      ])
     case .discord:
       svgPath(
         """

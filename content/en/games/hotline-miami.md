@@ -11,6 +11,7 @@ playtime: 5h 16m
 beaten: true
 cover: games/hotline-miami/cover.jpg
 gallery: games/hotline-miami/gallery-01.jpg, games/hotline-miami/gallery-02.jpg, games/hotline-miami/gallery-03.jpg, games/hotline-miami/gallery-04.jpg, games/hotline-miami/gallery-05.jpg
+review_slug: hotline-miami-review
 updated: 2026-06-27
 featured_order: 6
 ---

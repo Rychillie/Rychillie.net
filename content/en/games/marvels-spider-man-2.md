@@ -11,6 +11,7 @@ playtime: 17h 23m
 beaten: true
 cover: games/marvels-spider-man-2/cover.jpg
 gallery: games/marvels-spider-man-2/gallery-01.jpg, games/marvels-spider-man-2/gallery-02.jpg, games/marvels-spider-man-2/gallery-03.jpg, games/marvels-spider-man-2/gallery-04.jpg, games/marvels-spider-man-2/gallery-05.jpg, games/marvels-spider-man-2/gallery-06.jpg, games/marvels-spider-man-2/gallery-07.jpg, games/marvels-spider-man-2/gallery-08.jpg, games/marvels-spider-man-2/gallery-09.jpg, games/marvels-spider-man-2/gallery-10.jpg, games/marvels-spider-man-2/gallery-11.jpg, games/marvels-spider-man-2/gallery-12.jpg, games/marvels-spider-man-2/gallery-13.jpg
+review_slug: marvels-spider-man-2-review
 updated: 2026-06-27
 featured_order: 3
 ---

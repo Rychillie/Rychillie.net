@@ -11,6 +11,7 @@ playtime: 16h 17m
 beaten: true
 cover: games/the-last-of-us-part-i/cover.jpg
 gallery: games/the-last-of-us-part-i/gallery-01.jpg, games/the-last-of-us-part-i/gallery-02.jpg, games/the-last-of-us-part-i/gallery-03.jpg, games/the-last-of-us-part-i/gallery-04.jpg, games/the-last-of-us-part-i/gallery-05.jpg, games/the-last-of-us-part-i/gallery-06.jpg, games/the-last-of-us-part-i/gallery-07.jpg, games/the-last-of-us-part-i/gallery-08.jpg
+review_slug: the-last-of-us-part-i-review
 updated: 2026-06-27
 featured_order: 4
 ---

@@ -131,6 +131,7 @@ struct SiteCopy {
   let copyMarkdownAction: String
   let copiedAction: String
   let articleLabel: String
+  let reviewLabel: String
   let talkLabel: String
   let videoLabel: String
   let participatedLabel: String
@@ -139,6 +140,7 @@ struct SiteCopy {
   func label(for noteType: NoteType) -> String {
     switch noteType {
     case .article: articleLabel
+    case .review: reviewLabel
     case .talk: talkLabel
     case .video: videoLabel
     case .participated: participatedLabel
@@ -251,6 +253,7 @@ extension SiteCopy {
     copyMarkdownAction: "Markdown",
     copiedAction: "Copied",
     articleLabel: "Article",
+    reviewLabel: "Review",
     talkLabel: "Talk",
     videoLabel: "Video",
     participatedLabel: "Participated",
@@ -334,6 +337,7 @@ extension SiteCopy {
     copyMarkdownAction: "Markdown",
     copiedAction: "Copiado",
     articleLabel: "Artigo",
+    reviewLabel: "Review",
     talkLabel: "Talk",
     videoLabel: "Vídeo",
     participatedLabel: "Participei",

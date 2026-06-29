@@ -7,10 +7,11 @@ playable_on: PC / PS4 / PS5 / Xbox
 edition: Standard
 beaten: false
 cover: games/elden-ring/cover.jpg
-updated: 2026-06-20
+gallery: games/elden-ring/gallery-01.jpg, games/elden-ring/gallery-02.jpg, games/elden-ring/gallery-03.jpg, games/elden-ring/gallery-04.jpg, games/elden-ring/gallery-05.jpg, games/elden-ring/gallery-06.jpg, games/elden-ring/gallery-07.jpg, games/elden-ring/gallery-08.jpg, games/elden-ring/gallery-09.jpg, games/elden-ring/gallery-10.jpg
+updated: 2026-06-28
 featured_order: 13
 ---
 
 # Elden Ring
 
-Wishlist. It is one of the major games I still want to experience properly, especially for world structure and discovery.
+Elden Ring is a fantasy action RPG that calls the Tarnished to the Lands Between. Guided by grace, the journey is about claiming the power of the Elden Ring and rising toward the title of Elden Lord.
