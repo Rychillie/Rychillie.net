@@ -7,6 +7,7 @@ playable_on: Nintendo Switch 2
 edition: Gold Edition
 beaten: false
 cover: games/star-wars-outlaws-gold-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 276
 ---

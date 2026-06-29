@@ -8,6 +8,7 @@ edition: Standard
 playtime: 3h 33m
 beaten: true
 cover: games/fist-of-awesome/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 173
 ---

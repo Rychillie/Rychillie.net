@@ -11,6 +11,7 @@ playtime: 37h 41m
 beaten: true
 cover: games/red-dead-redemption/cover.jpg
 review_slug: red-dead-redemption-review
+published: false
 updated: 2026-06-20
 featured_order: 245
 ---

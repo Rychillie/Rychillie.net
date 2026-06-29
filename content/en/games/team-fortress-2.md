@@ -7,6 +7,7 @@ playable_on: PC
 edition: Standard
 beaten: false
 cover: games/team-fortress-2/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 291
 ---

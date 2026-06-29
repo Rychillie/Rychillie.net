@@ -7,6 +7,7 @@ playable_on: PlayStation / PS4 / PS5 / Nintendo Switch
 edition: Standard
 beaten: false
 cover: games/crash-bandicoot-3-warped/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 137
 ---

@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Game of the Year Edition
 beaten: false
 cover: games/borderlands-game-of-the-year-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 120
 ---

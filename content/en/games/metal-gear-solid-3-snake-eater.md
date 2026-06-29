@@ -7,6 +7,7 @@ playable_on: PS2
 edition: Standard
 beaten: false
 cover: games/metal-gear-solid-3-snake-eater/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 222
 ---

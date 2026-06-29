@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Anniversary Edition
 beaten: false
 cover: games/fallout-4-anniversary-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 168
 ---

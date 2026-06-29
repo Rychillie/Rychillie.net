@@ -7,6 +7,7 @@ playable_on: Electronika 60
 edition: Standard
 beaten: false
 cover: games/tetris/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 292
 ---

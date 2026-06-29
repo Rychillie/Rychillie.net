@@ -6,6 +6,7 @@ func renderGames(context: PageRenderingContext) -> Node {
   let copy = Site.copy(for: locale)
   let canonicalPath = context.translations[locale] ?? Site.localizedGamesPath(for: locale)
   let games = sortedGames(from: context)
+  let reviewSlugs = publishedReviewSlugs(from: context)
 
   return baseHtml(
     title: copy.gamesPageTitle,
@@ -30,7 +31,7 @@ func renderGames(context: PageRenderingContext) -> Node {
         }
 
         games.map { game in
-          gameDialog(game: game, copy: copy, locale: locale)
+          gameDialog(game: game, copy: copy, locale: locale, publishedReviewSlugs: reviewSlugs)
         }
 
         gamesScript()

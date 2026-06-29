@@ -7,6 +7,7 @@ playable_on: PC / PS4 / Xbox One / Nintendo Switch
 edition: Standard
 beaten: false
 cover: games/borderlands-3/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 123
 ---

@@ -1,22 +1,24 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Marvel's Spider-Man Remastered, a completed game in my personal catalog.
-date: 2025-09-16
+summary: Review draft for Until Dawn - PS4, a completed game in my personal catalog.
+published: false
+date: 2025-07-15
 ---
 
-# Marvel's Spider-Man Remastered
+# Until Dawn - PS4
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Marvel's Spider-Man Remastered
+- Game: Until Dawn - PS4
 - Status: Completed
-- Platform: PS5
-- Edition: Remastered
-- Finished: 2025-09-16
-- Playtime: 30h 13m
+- Platform: PS4
+- Playable on: PS5
+- Edition: Standard
+- Finished: 2025-07-15
+- Playtime: 6h 15m
 
 ## Review
 

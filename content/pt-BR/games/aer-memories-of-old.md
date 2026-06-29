@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Standard
 beaten: false
 cover: games/aer-memories-of-old/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 101
 ---

@@ -7,6 +7,7 @@ playable_on: PC / PS5 / Xbox Series X/S / Nintendo Switch 2
 edition: Standard
 beaten: false
 cover: games/borderlands-4/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 124
 ---

@@ -6,6 +6,7 @@ func renderHome(context: PageRenderingContext) -> Node {
   let copy = Site.copy(for: locale)
   let latestNotes = Array(context.allItems
     .compactMap { $0 as? Item<NoteMetadata> }
+    .filter { $0.metadata.isPublished }
     .sorted { $0.date > $1.date }
     .prefix(3))
   let canonicalPath = context.translations[locale] ?? Site.localizedHomePath(for: locale)

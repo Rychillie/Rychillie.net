@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Grand Theft Auto V, a completed game in my personal catalog.
-date: 2025-09-26
+summary: Review draft for Left 4 Dead, a completed game in my personal catalog.
+published: false
+date: 2016-07-03
 ---
 
-# Grand Theft Auto V
+# Left 4 Dead
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Grand Theft Auto V
+- Game: Left 4 Dead
 - Status: Completed
-- Platform: PS5
+- Platform: PC
 - Edition: Standard
-- Finished: 2025-09-26
-- Playtime: 36h 45m
+- Finished: 2016-07-03
+- Playtime: 3h 20m
 
 ## Review
 

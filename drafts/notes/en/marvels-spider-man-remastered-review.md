@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Left 4 Dead, a completed game in my personal catalog.
-date: 2016-07-03
+summary: Review draft for Marvel's Spider-Man Remastered, a completed game in my personal catalog.
+published: false
+date: 2025-09-16
 ---
 
-# Left 4 Dead
+# Marvel's Spider-Man Remastered
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Left 4 Dead
+- Game: Marvel's Spider-Man Remastered
 - Status: Completed
-- Platform: PC
-- Edition: Standard
-- Finished: 2016-07-03
-- Playtime: 3h 20m
+- Platform: PS5
+- Edition: Remastered
+- Finished: 2025-09-16
+- Playtime: 30h 13m
 
 ## Review
 

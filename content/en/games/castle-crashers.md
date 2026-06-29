@@ -11,6 +11,7 @@ playtime: 27h 25m
 beaten: true
 cover: games/castle-crashers/cover.jpg
 review_slug: castle-crashers-review
+published: false
 updated: 2026-06-20
 featured_order: 129
 ---

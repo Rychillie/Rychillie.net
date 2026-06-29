@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: The Rebel Collection
 beaten: false
 cover: games/assassins-creed-the-rebel-collection/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 108
 ---

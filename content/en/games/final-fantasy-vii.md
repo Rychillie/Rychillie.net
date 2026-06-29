@@ -7,6 +7,7 @@ playable_on: PlayStation
 edition: Standard
 beaten: false
 cover: games/final-fantasy-vii/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 172
 ---

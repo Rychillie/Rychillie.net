@@ -7,6 +7,7 @@ playable_on: Nintendo 64
 edition: Standard
 beaten: false
 cover: games/super-mario-64/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 282
 ---

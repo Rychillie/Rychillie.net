@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Remastered
 beaten: false
 cover: games/alan-wake-remastered/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 105
 ---

@@ -7,6 +7,7 @@ func renderNotes(context: PageRenderingContext) -> Node {
   let canonicalPath = context.translations[locale] ?? Site.localizedNotesPath(for: locale)
   let notes = context.allItems
     .compactMap { $0 as? Item<NoteMetadata> }
+    .filter { $0.metadata.isPublished }
     .sorted { $0.date > $1.date }
 
   return baseHtml(

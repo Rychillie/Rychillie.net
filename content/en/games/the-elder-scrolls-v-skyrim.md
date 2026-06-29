@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Anniversary Edition
 beaten: false
 cover: games/the-elder-scrolls-v-skyrim/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 293
 ---

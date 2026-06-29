@@ -7,6 +7,7 @@ playable_on: Nintendo Switch
 edition: Ultimate Edition
 beaten: false
 cover: games/cyberpunk-2077/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 142
 ---

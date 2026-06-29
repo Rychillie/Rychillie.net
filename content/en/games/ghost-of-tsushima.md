@@ -7,6 +7,7 @@ playable_on: PS4
 edition: Standard
 beaten: false
 cover: games/ghost-of-tsushima/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 176
 ---

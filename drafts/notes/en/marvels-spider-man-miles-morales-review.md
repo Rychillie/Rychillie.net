@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Hotline Miami, a completed game in my personal catalog.
-date: 2016-10-02
+summary: Review draft for Marvel's Spider-Man - Miles Morales, a completed game in my personal catalog.
+published: false
+date: 2025-11-09
 ---
 
-# Hotline Miami
+# Marvel's Spider-Man - Miles Morales
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Hotline Miami
+- Game: Marvel's Spider-Man - Miles Morales
 - Status: Completed
-- Platform: PC
+- Platform: PS5
 - Edition: Standard
-- Finished: October 2, 2016
-- Playtime: 5h 16m
+- Finished: 2025-11-09
+- Playtime: 11h 49m
 
 ## Review
 

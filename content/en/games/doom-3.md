@@ -7,6 +7,7 @@ playable_on: PC / Xbox
 edition: Standard
 beaten: false
 cover: games/doom-3/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 159
 ---

@@ -7,6 +7,7 @@ playable_on: Nintendo Switch 2
 edition: Director's Cut
 beaten: false
 cover: games/yakuza-0-directors-cut/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 333
 ---

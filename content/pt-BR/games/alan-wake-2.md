@@ -7,6 +7,7 @@ playable_on: PC / PS5 / Xbox Series X/S
 edition: Standard
 beaten: false
 cover: games/alan-wake-2/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 104
 ---

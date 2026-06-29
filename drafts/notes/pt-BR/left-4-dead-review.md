@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de The Last of Us Parte I, um jogo zerado no meu catálogo pessoal.
-date: 2026-04-24
+summary: Rascunho de review de Left 4 Dead, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2016-07-03
 ---
 
-# The Last of Us Parte I
+# Left 4 Dead
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: The Last of Us Parte I
+- Jogo: Left 4 Dead
 - Status: Zerado
-- Plataforma: PS5
+- Plataforma: PC
 - Edição: Standard
-- Finalizado: 24 de abril de 2026
-- Tempo de jogo: 16h 17m
+- Finalizado: 2016-07-03
+- Tempo de jogo: 3h 20m
 
 ## Análise
 

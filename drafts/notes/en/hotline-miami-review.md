@@ -1,22 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Left 4 Dead 2, a completed game in my personal catalog.
-date: 2016-07-08
+summary: Review draft for Hotline Miami, a completed game in my personal catalog.
+published: false
+date: 2016-10-02
 ---
 
-# Left 4 Dead 2
+# Hotline Miami
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Left 4 Dead 2
+- Game: Hotline Miami
 - Status: Completed
 - Platform: PC
 - Edition: Standard
-- Finished: 2016-07-08
-- Playtime: 23h 31m
+- Finished: October 2, 2016
+- Playtime: 5h 16m
 
 ## Review
 

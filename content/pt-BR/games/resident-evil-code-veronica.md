@@ -7,6 +7,7 @@ playable_on: Dreamcast / PS2 / GameCube
 edition: Standard
 beaten: false
 cover: games/resident-evil-code-veronica/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 254
 ---

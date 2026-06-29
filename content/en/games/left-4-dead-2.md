@@ -11,6 +11,7 @@ playtime: 23h 31m
 beaten: true
 cover: games/left-4-dead-2/cover.jpg
 review_slug: left-4-dead-2-review
+published: false
 updated: 2026-06-20
 featured_order: 204
 ---

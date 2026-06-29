@@ -1,22 +1,23 @@
 ---
 tags: games, review, zerado
 type: review
-summary: Rascunho de review de Red Dead Redemption, um jogo zerado no meu catálogo pessoal.
-date: 2024-10-30
+summary: Rascunho de review de Marvel's Spider-Man - Miles Morales, um jogo zerado no meu catálogo pessoal.
+published: false
+date: 2025-11-09
 ---
 
-# Red Dead Redemption
+# Marvel's Spider-Man - Miles Morales
 
 > Rascunho de review para um jogo zerado. Use esta nota para transformar registros da jogatina em uma análise pública.
 
 ## Registro
 
-- Jogo: Red Dead Redemption
+- Jogo: Marvel's Spider-Man - Miles Morales
 - Status: Zerado
-- Plataforma: Nintendo Switch
+- Plataforma: PS5
 - Edição: Standard
-- Finalizado: 2024-10-30
-- Tempo de jogo: 37h 41m
+- Finalizado: 2025-11-09
+- Tempo de jogo: 11h 49m
 
 ## Análise
 

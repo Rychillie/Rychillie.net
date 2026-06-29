@@ -11,6 +11,7 @@ playtime: 30h 13m
 beaten: true
 cover: games/marvels-spider-man-remastered/cover.jpg
 review_slug: marvels-spider-man-remastered-review
+published: false
 updated: 2026-06-20
 featured_order: 219
 ---

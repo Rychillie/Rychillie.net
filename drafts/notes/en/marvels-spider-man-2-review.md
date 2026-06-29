@@ -1,23 +1,23 @@
 ---
 tags: games, review, completed
 type: review
-summary: Review draft for Until Dawn - PS4, a completed game in my personal catalog.
-date: 2025-07-15
+summary: Review draft for Marvel's Spider-Man 2, a completed game in my personal catalog.
+published: false
+date: 2026-06-10
 ---
 
-# Until Dawn - PS4
+# Marvel's Spider-Man 2
 
 > Draft review for a completed game. Use this note to turn playthrough notes into a public analysis.
 
 ## Snapshot
 
-- Game: Until Dawn - PS4
+- Game: Marvel's Spider-Man 2
 - Status: Completed
-- Platform: PS4
-- Playable on: PS5
+- Platform: PS5
 - Edition: Standard
-- Finished: 2025-07-15
-- Playtime: 6h 15m
+- Finished: June 10, 2026
+- Playtime: 17h 23m
 
 ## Review
 

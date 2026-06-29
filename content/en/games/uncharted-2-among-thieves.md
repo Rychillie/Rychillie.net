@@ -7,6 +7,7 @@ playable_on: PS3 / PS4
 edition: Standard
 beaten: false
 cover: games/uncharted-2-among-thieves/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 319
 ---

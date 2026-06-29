@@ -7,6 +7,7 @@ playable_on: Nintendo Switch 2
 edition: Immortal Edition
 beaten: false
 cover: games/the-rogue-prince-of-persia-immortal-edition/cover.jpg
+published: false
 updated: 2026-06-20
 featured_order: 299
 ---
